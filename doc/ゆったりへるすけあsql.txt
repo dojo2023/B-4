@@ -1,0 +1,77 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/dojo6Data/B4
+
+
+
+
+
+
+
+【usersテーブルを作成するSQL文】
+create table users (
+  user_id varchar(20) primary key,
+  user_password varchar(20) not null,
+  user_name varchar(10) not null
+  created at datetime not null default current_timestamp,
+  updated at datetime not null default current_timestamp on update current_timestamp
+);
+
+【usersテーブルにサンプルデータを登録するSQL文】
+insert into users (user_id, user_password, user_name, created at, updated at) 
+values ('health', 'care0326','きんにくまん', '', '');
+
+
+【personalsテーブルを作成するSQL文】
+create table personals (
+  id int(20) primary key,
+  user_id varchar(20) not null,
+  dreamweights int(20) not null,
+  realweights int(20) not null,
+  starts int() not null,
+  deadline int() not null,
+  goal string(50) not null,
+  created at datetime not null default current_timestamp,
+  updated at datetime not null default current_timestamp on update current_timestamp
+);
+
+【personalsテーブルにサンプルデータを登録するSQL文】
+insert into personals (id, user_id, dreamweights, realweights, starts, deadline, goal, created at, updated at) 
+values ('', 'health','45', '50','', '', '美しく綺麗な体型になる', '', '' );
+
+
+【friendsテーブルを作成するSQL文】
+create table friends (
+  id int(20) primary key,
+  user_id varchar(20) not null,
+  friendsname varchar(10) not null,
+  friendsid varchar(20) not null,
+  created at datetime not null default current_timestamp,
+  updated at datetime not null default current_timestamp on update current_timestamp
+);
+
+【friendsテーブルにサンプルデータを登録するSQL文】
+insert into friends (id, user_id, friendsname, friendsid, created at, updated at) 
+values ('', 'health', 'ふうと', 'haraita', '', '');
+
+
+【logindatasテーブルを作成するSQL文】
+create table logindatas (
+  id int(20) primary key,
+  user_id varchar(20) not null,
+  created at datetime not null default current_timestamp,
+  updated at datetime not null default current_timestamp on update current_timestamp
+);
+
+【logindatasテーブルにサンプルデータを登録するSQL文】
+insert into logindates (id, user_id, created at, updated at)
+values ('', 'health', '', '');
+
+
+【managementofpointsテーブルを作成するSQL文】
+
+
+
+
