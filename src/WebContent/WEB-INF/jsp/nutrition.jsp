@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>栄養管理</title>
 </head>
 <body>
 <h1>栄養管理</h1>
@@ -20,21 +20,59 @@
 </div>
 <div class="col-auto my-5">
 <div id="Box1" class="my-5" style="display:none;">
-    <p>タンパク質を摂取するための食事方法やレシピを表示するコンテンツ</p>
+    <p>
+        鶏むね肉（皮なし）100g(24.4g)→ガーリック醤油チキン、唐揚げ<br>
+        さけ100g(22.3g)→ムニエル、サーモンと新玉ねぎのマリネ<br>
+        たまご(12.3g)→玉子焼き、オムレツ<br>
+        牛乳<br>
+        豆乳<br>
+        プロテイン<br>
+    </p>
 </div>
 <div id="Box2" class="my-5" style="display:none;">
-    <p>ビタミンを豊富に含む食品や食事の改善方法に関する情報を表示するコンテンツ</p>
+    <p>
+        赤ピーマン100g(170mg)→ガパオライス<br>
+        ブロッコリー100g(120mg)→ブロッコリーのペペロンチーノ<br>
+        サツマイモ100g(29mg)→ドンキの焼き芋<br>
+        キウイフルーツ（黄）100g(140mg)<br>
+        キウイフルーツ（緑）100g(69mg)<br>
+        イチゴ100g(62mg)<br>
+    </p>
 </div>
 <div id="Box3" class="my-5" style="display:none;">
-    <p>脂質抜きダイエットに適した食品やダイエット方法に関する情報を表示するコンテンツ</p>
+    <p>
+豆腐ハンバーグ<br>
+マグロのステーキ<br>
+親子丼<br>
+低脂肪牛乳<br>
+低脂肪ヨーグルト<br>
+鶏ささみ<br>
+    </p>
 </div>
 <div id="Box4" class="my-5" style="display:none;">
-    <p>糖質抜きダイエットに適した食品やダイエット方法に関する情報を表示するコンテンツ</p>
+    <p>
+        玄米<br>
+        そば<br>
+        納豆<br>
+        きのこ<br>
+        こんにゃくと大豆の煮物<br>
+        ひじきの煮物<br>
+    </p>
 </div>
 <div id="Box5" class="my-5" style="display:none;">
-    <p>ミネラルを含む食品や健康維持のための食事に関する情報を表示するコンテンツ</p>
+    <p>
+        レバニラ<br>
+        味噌汁<br>
+        きな粉がけヨーグルト<br>
+        牡蠣<br>
+        たらこ<br>
+        アーモンド<br>
+        カシューナッツ<br>
+        焼き海苔<br>
+    </p>
 </div>
 </div>
+<img src="/komatsukita/img/shell.png" width="260" height="100" alt="女の子">
 <script>
 function viewChange() {
     var id = document.getElementById('sample').value;
