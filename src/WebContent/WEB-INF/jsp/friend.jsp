@@ -5,8 +5,10 @@
 <meta charset="UTF-8">
 <title>フレンド登録</title>
 </head>
+<link rel="stylesheet" type="text/css" href="friend.css">
 
 <body>
+
     <img src="/komatsukita/img/komatsu12.png" width="260" height="100" alt="女の子">
     <h1>ともだち</h1>
     <form action="friendRegistration.jsp" method="get" id="searchForm">

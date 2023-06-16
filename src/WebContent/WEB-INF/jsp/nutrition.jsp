@@ -5,20 +5,26 @@
 <title>栄養管理</title>
 </head>
 <body>
+    <link rel="stylesheet" type="text/css" href="nutrition.css">
 <h1>栄養管理</h1>
-<div class="col-auto my-1">
+<br>
+
+<div class="muri center">
     <label for="sample">目的を選択</label>
-</div>
-<div class="col-auto my-1">
-    <select class="form-control" id="sample" onchange="viewChange();">
+    <div class="col-auto my-1">
+      <select class="form-control" id="sample" onchange="viewChange();">
         <option value="select1">体を鍛えたい（タンパク質）</option>
         <option value="select2">食生活の改善（ビタミン重視）</option>
         <option value="select3">瘦せたい、ダイエット（脂質抜きダイエット）</option>
         <option value="select4">瘦せたい、ダイエット（糖質抜きダイエット）</option>
         <option value="select5">日々の健康維持（ミネラル）</option>
-    </select>
-</div>
-<div class="col-auto my-5">
+      </select>
+    </div>
+  </div>
+
+<br>
+
+<div class="col-auto my-5 center">
 <div id="Box1" class="my-5" style="display:none;">
     <p>
         鶏むね肉（皮なし）100g(24.4g)→ガーリック醤油チキン、唐揚げ<br>
