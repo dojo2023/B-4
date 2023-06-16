@@ -1,0 +1,76 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/dojo6Data/B4
+
+
+
+
+
+
+
+【usersテーブルを作成するSQL文】〆
+create table users (
+  user_id varchar(20) primary key,
+  user_password varchar(20) not null,
+  user_name varchar(10) not null
+  created_at datetime not null default current_timestamp,
+  updated_at datetime not null default current_timestamp on update current_timestamp
+);
+
+【usersテーブルにサンプルデータを登録するSQL文】〆
+insert into users (user_id, user_password, user_name) 
+values ('health', 'care0326','きんにくまん');
+
+【personalsテーブルを作成するSQL文】〆
+CREATE TABLE personals (
+  id INT AUTO INCREMENT PRIMARY KEY,
+  user_id VARCHAR(20) NOT NULL,
+  dreamweights INT(20) NOT NULL,
+  realweights INT(20) NOT NULL,
+  starts INT NOT NULL,
+  deadline INT NOT NULL,
+  goal VARCHAR(50) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+【personalsテーブルにサンプルデータを登録するSQL文】
+insert into personals (id, user_id, dreamweights, realweights, starts, deadline, goal, created at, updated at) 
+values ('', 'health','45', '50','', '', '美しく綺麗な体型になる', '', '' );
+
+
+【friendsテーブルを作成するSQL文】〆
+create table friends (
+  id INT AUTO INCREMENT PRIMARY KEY,
+  user_id varchar(20) not null,
+  friendsname varchar(10) not null,
+  friendsid varchar(20) not null,
+  created_at datetime not null default current_timestamp,
+  updated_at datetime not null default current_timestamp on update current_timestamp
+);
+
+【friendsテーブルにサンプルデータを登録するSQL文】
+insert into friends (id, user_id, friendsname, friendsid) 
+values ('', 'health', 'ふうと', 'haraita');
+
+
+【logindatasテーブルを作成するSQL文】
+create table logindatas (
+  id INT AUTO INCREMENT PRIMARY KEY,
+  user_id varchar(20) not null,
+  created at datetime not null default current_timestamp,
+  updated at datetime not null default current_timestamp on update current_timestamp
+);
+
+【logindatasテーブルにサンプルデータを登録するSQL文】
+insert into logindates (id, user_id, created at, updated at)
+values ('', 'health', '', '');
+
+
+【managementofpointsテーブルを作成するSQL文】
+
+
+
+
