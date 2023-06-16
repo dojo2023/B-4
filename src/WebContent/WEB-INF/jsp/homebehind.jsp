@@ -6,6 +6,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>いえとれ（せなか）</h1>
+<p>背中（ダンベルなし）</p>
+<a href = "https://www.youtube.com/watch?v=Q-LGg-58_ZU&pp=ygUS6IOM5Lit44CA562L44OI44Os">youtubeへ</a>
+<img src = "C:\Users\user\Downloads\memo0616\背中ダンベルなし.png">
+<p>背中（ダンベルあり）</p>
+<a href = "https://www.youtube.com/watch?v=b17YS3l1wOc&pp=ygUV6IOM5Lit44CA44OA44Oz44OZ44Or">youtubeへ</a>
+<img src = "C:\Users\user\Downloads\memo0616\背中ダンベル.png">
 </body>
 </html>
