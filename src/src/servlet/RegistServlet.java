@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.BcDAO;
-import model.Bc;
+import model.Registdata;
 
 /**
  * Servlet implementation class RegistServlet
@@ -41,7 +41,7 @@ public class RegistServlet extends HttpServlet {
 
 	// 登録処理を行う
 			BcDAO bDao = new BcDAO();
-			if (bDao.insert(new Bc(id, password, repass
+			if (bDao.insert(new Registdata(id, password, repass
 					))) {
 	// 登録成功
 				request.setAttribute("result",
