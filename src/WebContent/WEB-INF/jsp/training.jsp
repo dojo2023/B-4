@@ -8,8 +8,12 @@
 </head>
 <body>
 <h1>トレーニングをえらんでね</h1>
-    <li><a href="/komatsukita/trainingServlet">家庭用トレーニング</a></li>
-    <li><a href="/komatsukita/trainingServlet">ジム用トレーニング</a></li>
+    <a href="/komatsukita/trainingServlet">家庭用トレーニング</a>
 
+    <img src="/komatsukita/img/senpuki.png" width="260" height="100" alt="女の子">
+
+<br>
+    <a href="/komatsukita/trainingServlet">ジム用トレーニング</a>
+    <img src="/komatsukita/img/inusan.png" width="260" height="100" alt="女の子">
 </body>
 </html>
