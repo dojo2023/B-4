@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.IdpwDAO;
+import dao.LogindataDAO;
 import model.LoginUser;
 import model.Logindata;
+import model.Result;
 
 /**
  * Servlet implementation class LoginServlet
@@ -46,10 +47,11 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("ID");
 		String pw = request.getParameter("PW");
+		String re = request.getParameter("RE");
 
 		// ログイン処理を行う
-		IdpwDAO iDao = new IdpwDAO();
-		if (iDao.isLoginOK(new Logindata(id, pw))) {	// ログイン成功
+		LogindataDAO iDao = new LogindataDAO();
+		if (iDao.isLoginOK(new Logindata(id, pw,re))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("id", new LoginUser(id));
