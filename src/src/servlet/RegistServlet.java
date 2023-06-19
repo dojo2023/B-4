@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.BcDAO;
+import dao.RegistdataDAO;
 import model.Registdata;
+import model.Result;
 
 /**
  * Servlet implementation class RegistServlet
@@ -40,17 +41,17 @@ public class RegistServlet extends HttpServlet {
 	String repass=request.getParameter("REPASS");
 
 	// 登録処理を行う
-			BcDAO bDao = new BcDAO();
+			RegistdataDAO bDao = new RegistdataDAO();
 			if (bDao.insert(new Registdata(id, password, repass
 					))) {
 	// 登録成功
 				request.setAttribute("result",
-				new Result("登録成功！", "/komatsukita/HomeServlet"));
+				new Result());
 			}
 			else {
 	// 登録失敗
 				request.setAttribute("result",
-				new Result("登録失敗！", "/komatsukita/HomeServlet"));
+				new Result());
 			}
 
 			// 結果ページにフォワードする
