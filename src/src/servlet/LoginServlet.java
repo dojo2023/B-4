@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.IdpwDAO;
 import model.LoginUser;
+import model.Logindata;
 
 /**
  * Servlet implementation class LoginServlet
@@ -48,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 
 		// ログイン処理を行う
 		IdpwDAO iDao = new IdpwDAO();
-		if (iDao.isLoginOK(new Idpw(id, pw))) {	// ログイン成功
+		if (iDao.isLoginOK(new Logindata(id, pw))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("id", new LoginUser(id));
