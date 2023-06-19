@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.IdpwDAO;
-import model.Idpw;
 import model.LoginUser;
 
 /**

@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.BcDAO;
 import model.Bc;
@@ -24,12 +23,6 @@ public class RegistServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/komatsukita/LoginServlet");
-					return;
-			}
 		// 登録ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 				dispatcher.forward(request, response);
@@ -39,12 +32,6 @@ public class RegistServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-	HttpSession session = request.getSession();
-	if (session.getAttribute("id") == null) {
-		response.sendRedirect("/komatsukita/LoginServlet");
-		return;
-	}
 
 	// リクエストパラメータを取得する
 	request.setCharacterEncoding("UTF-8");
@@ -58,7 +45,7 @@ public class RegistServlet extends HttpServlet {
 					))) {
 	// 登録成功
 				request.setAttribute("result",
-				new Result("登録成功！", "/komatsukita/Homervlet"));
+				new Result("登録成功！", "/komatsukita/HomeServlet"));
 			}
 			else {
 	// 登録失敗
