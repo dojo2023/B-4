@@ -37,17 +37,17 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("ID");
-		String pw = request.getParameter("PW");
+		String user_id = request.getParameter("USER_ID");
+		String user_password = request.getParameter("USER_PASSWORD");
 
 		// ログイン処理を行う
 		LogindataDAO iDao = new LogindataDAO();
-		if (iDao.isLoginOK(new Logindata(id, pw))) {	// ログイン成功
+		if (iDao.isLoginOK(new Logindata(user_id,user_password))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("id", new LoginUser(id));
+			session.setAttribute("id", new LoginUser(user_id));
 
-			// メニューサーブレットにリダイレクトする
+			// ホームサーブレットにリダイレクトする
 			response.sendRedirect("/komatsukita/HomeServlet");
 		}
 		else {									// ログイン失敗
