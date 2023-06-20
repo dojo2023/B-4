@@ -10,7 +10,7 @@ import model.Logindata;
 
 public class LogindataDAO {
 	// ログインできるならtrueを返す
-	public boolean isLoginOK(Logindata idpw) {
+	public boolean isLoginOK(Logindata user_iduser_password) {
 		Connection conn = null;
 		boolean loginResult = false;
 
@@ -19,13 +19,13 @@ public class LogindataDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4","", "");
 
 			// SELECT文を準備する
-			String sql = "select * from BC WHERE ID LIKE ? AND PW LIKE ? ORDER BY NUMBER";
+			String sql = "select count(*) from LOGINDATA where USER_ID = ? and USER_PASSWORD = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, idpw.getId());
-			pStmt.setString(2,idpw.getPw());
+			pStmt.setString(1, user_iduser_password.getUser_id());
+			pStmt.setString(2,user_iduser_password.getUser_password());
 
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
