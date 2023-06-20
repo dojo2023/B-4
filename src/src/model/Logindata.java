@@ -3,33 +3,33 @@ package model;
 import java.io.Serializable;
 
 public class Logindata implements Serializable {
-	private String id;	// ID
-	private String pw;	// PW
+	private String user_id;	// ID
+	private String user_password;	// PW
 
-	public Logindata(String id, String pw) {
-		this.id = id;
-		this.pw = pw;
+	public Logindata(String user_id, String user_password) {
+		this.user_id = user_id;
+		this.user_password = user_password;
 	}
 
 	public Logindata() {
-		this.id = "";
-		this.pw = "";
+		this.user_id = "";
+		this.user_password = "";
 	}
 
-	public String getId() {
-		return id;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getPw() {
-		return pw;
+	public String getUser_password() {
+		return user_password;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setUserpassword(String user_password) {
+		this.user_password = user_password;
 	}
 
 }
