@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 /**
  * Servlet implementation class FriendlistServlet
  */
@@ -49,11 +51,15 @@ public class FriendlistServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("ID");
 		String user_id = request.getParameter("USER_ID");
 		String friends_id = request.getParameter("FRIENDS_ID");
+
+//		FriendsDAO fDao = new FriendsDAO();
+//		List<Friends> cardList = fDao.select(new Friends(id, user_id, friends_id));
 	}
 
 }

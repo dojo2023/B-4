@@ -51,11 +51,15 @@
       color: #fff;
     }
   </style>
+  <link rel="stylesheet" href="/komatsukita/css/home.css">
 </head>
+
 <body>
 <h1>ゆるすけあ</h1>
-<img src="homewoman">
-	<input type ="text" name = "dreamweight" placeholder = "もくひょうたいじゅう"><br>
+<div class = "komatsu4">
+	<img src="/komatsukita/img/homewoman.png" width="260" height="130"><br>
+</div>
+	<input type ="text" name = "dreamweight" placeholder = "もくひょうたいじゅう">
 	<input type = "text" name = "mokuteki" placeholder="もくてき"><br>
 	<input type="date" name="calendar1" value = "開始日">
 	<input type="date" name="calendar1" value = "開始日">
