@@ -62,7 +62,7 @@ public class FriendServlet extends HttpServlet {
 		String friends_id = request.getParameter("FRIEND_ID");
 
 		// 登録処理を行う
-		FriendsDao
+//		FriendsDao
 	}
 
 
