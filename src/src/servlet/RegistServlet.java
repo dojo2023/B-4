@@ -36,22 +36,22 @@ public class RegistServlet extends HttpServlet {
 
 	// リクエストパラメータを取得する
 	request.setCharacterEncoding("UTF-8");
-	String id=request.getParameter("ID");
-	String password=request.getParameter("PASSWORD");
-	String repass=request.getParameter("REPASS");
+	String user_id=request.getParameter("USER_ID");
+	String user_password=request.getParameter("USER_PASSWORD");
+	String user_name=request.getParameter("USER_NAME");
 
 	// 登録処理を行う
 			RegistdataDAO bDao = new RegistdataDAO();
-			if (bDao.insert(new Registdata(id, password, repass
+			if (bDao.insert(new Registdata(user_id, user_password, user_name
 					))) {
 	// 登録成功
 				request.setAttribute("result",
-				new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
+				new Result("登録成功！", "登録しました。", "/komatsukita/LoginServlet"));
 			}
 			else {
 	// 登録失敗
 				request.setAttribute("result",
-				new Result("登録失敗！", "レコードを登録できませんでした。", "/komatsukita/HomeServlet"));
+				new Result("登録失敗！", "登録できませんでした。", "/komatsukita/LoginServlet"));
 			}
 
 			// 結果ページにフォワードする
