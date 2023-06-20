@@ -12,6 +12,6 @@
 <h1><c:out value="${result.title}" /></h1>
 <hr>
 <p><c:out value="${result.message}" /></p>
-<a href="${result.backTo}">メニューへ戻る</a>
+<a href="${result.backTo}">戻る</a>
 </body>
 </html>
