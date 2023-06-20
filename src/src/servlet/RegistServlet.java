@@ -46,12 +46,12 @@ public class RegistServlet extends HttpServlet {
 					))) {
 	// 登録成功
 				request.setAttribute("result",
-				new Result());
+				new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
 			}
 			else {
 	// 登録失敗
 				request.setAttribute("result",
-				new Result());
+				new Result("登録失敗！", "レコードを登録できませんでした。", "/komatsukita/HomeServlet"));
 			}
 
 			// 結果ページにフォワードする

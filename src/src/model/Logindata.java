@@ -31,4 +31,5 @@ public class Logindata implements Serializable {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+
 }
