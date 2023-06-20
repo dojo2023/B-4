@@ -20,26 +20,27 @@ public class RegistdataDAO {
 		Class.forName("org.h2.Driver");
 
 		// データベースに接続する
-		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4","sa","");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4","","");
 
 		// SQL文を準備する
-		String sql = "select * from BC WHERE ID LIKE ? AND PASSWORD LIKE ? AND REPASS LIKE ? ORDER BY NUMBER";
+		String sql = "select * from REGISTDATA WHERE USER_ID LIKE ? AND USER_PASSWORD LIKE ? AND USER_NAME LIKE ? ORDER BY USER_ID";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 		// SQL文を完成させる
-					if (param.getId() != null) {
-						pStmt.setString(1, "%" + param.getId() + "%");
+					if (param.getUser_id() != null) {
+						pStmt.setString(1, "%" + param.getUser_id() + "%");
 					}
 					else {
 						pStmt.setString(1, "%");
 					}
-					if (param.getPassword() != null) {
-						pStmt.setString(2, "%" + param.getPassword() + "%");
+					if (param.getUser_password() != null) {
+						pStmt.setString(2, "%" + param.getUser_password() + "%");
 					}
 					else {
 						pStmt.setString(2, "%");
 					}
-					if (param.getRepass() != null) {
-						pStmt.setString(3, "%" + param.getRepass() + "%");
+
+					if (param.getUser_name() != null) {
+						pStmt.setString(3, "%" + param.getUser_name() + "%");
 					}
 					else {
 						pStmt.setString(3, "%");
@@ -53,7 +54,7 @@ public class RegistdataDAO {
 						Registdata card = new Registdata(
 						rs.getString("ID"),
 						rs.getString("PASSWORD"),
-						rs.getString("REPASS")
+						rs.getString("USER")
 						);
 						cardList.add(card);
 					}
@@ -93,27 +94,27 @@ public class RegistdataDAO {
 					Class.forName("org.h2.Driver");
 
 					// データベースに接続する
-					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "", "");
 
 					// SQL文を準備する
-					String sql = "insert into BC values (?, ?, ?)";
+					String sql = "insert into REGISTDATA values (?, ?, ?, ?)";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる
-					if (card.getId() != null && !card.getId().equals("")) {
-						pStmt.setString(1, card.getId());
+					if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+						pStmt.setString(1, card.getUser_id());
 					}
 					else {
 						pStmt.setString(1, null);
 					}
-					if (card.getPassword() != null && !card.getPassword().equals("")) {
-						pStmt.setString(2, card.getPassword());
+					if (card.getUser_password() != null && !card.getUser_password().equals("")) {
+						pStmt.setString(2, card.getUser_password());
 					}
 					else {
 						pStmt.setString(2, null);
 					}
-					if (card.getRepass() != null && !card.getRepass().equals("")) {
-						pStmt.setString(3, card.getRepass());
+					if (card.getUser_name() != null && !card.getUser_name().equals("")) {
+						pStmt.setString(3, card.getUser_name());
 					}
 					else {
 						pStmt.setString(3, null);
@@ -157,27 +158,28 @@ public class RegistdataDAO {
 					Class.forName("org.h2.Driver");
 
 					// データベースに接続する
-					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "", "");
 
 					// SQL文を準備する
-					String sql = "update BC set PASSWORD=?, REPASS=? where ID=?";
+					String sql = "update REGISTDATA set USER_PASSWORD=?, USER_NAME=? where USER_ID=?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる
-					if (card.getPassword() != null && !card.getPassword().equals("")) {
-						pStmt.setString(1, card.getPassword());
+					if (card.getUser_password() != null && !card.getUser_password().equals("")) {
+						pStmt.setString(1, card.getUser_password());
 					}
 					else {
 						pStmt.setString(1, null);
 					}
-					if (card.getRepass() != null && !card.getRepass().equals("")) {
-						pStmt.setString(2, card.getRepass());
+					if (card.getUser_name() != null && !card.getUser_name().equals("")) {
+						pStmt.setString(2, card.getUser_name());
 					}
 					else {
 						pStmt.setString(2, null);
 					}
 
-					pStmt.setString(3, card.getId());
+
+					pStmt.setString(3, card.getUser_id());
 
 					// SQL文を実行する
 					if (pStmt.executeUpdate() == 1) {
@@ -216,10 +218,10 @@ public class RegistdataDAO {
 					Class.forName("org.h2.Driver");
 
 					// データベースに接続する
-					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "", "");
 
 					// SQL文を準備する
-					String sql = "delete from REGISTDATA where ID=?";
+					String sql = "delete from REGISTDATA where USER_ID=?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる
