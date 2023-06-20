@@ -1,25 +1,24 @@
 package model;
 
-
 import java.io.Serializable;
 
-public class Training implements Serializable {
+public class Friends implements Serializable {
 	private String user_id;
 	private String id;
-	private String parts_name;
+	private String friends_id;
 
-	public Training(String user_id, String id, String parts_name) {
+	public Friends(String user_id, String id, String friends_id) {
 		super();
 		this.user_id = user_id;
 		this.id = id;
-		this.parts_name = parts_name;
+		this.friends_id = friends_id;
 	}
 
-	public Training () {
+	public Friends () {
 		super();
 		this.user_id = "";
 		this.id = "";
-		this.parts_name = "";
+		this.friends_id = "";
 	}
 
 	public String getUser_id() {
@@ -34,15 +33,12 @@ public class Training implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getParts_name() {
-		return parts_name;
+	public String getFriends_id() {
+		return friends_id;
 	}
-	public void setParts_name(String parts_name) {
-		this.parts_name = parts_name;
+	public void setFriends_id(String friends_id) {
+		this.friends_id = friends_id;
 	}
-
 
 
 }
-
-
