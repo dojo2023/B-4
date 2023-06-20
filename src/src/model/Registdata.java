@@ -3,45 +3,46 @@ package model;
 import java.io.Serializable;
 
 public class Registdata implements Serializable{
-    private String id;
-    private String password;
-    private String repass;
+    private String user_id;
+    private String user_password;
+    private String user_name;
 
-public Registdata(String id, String password, String repass) {
+public Registdata(String user_id, String user_password, String user_name) {
 	super();
 
-	this.id = id;
-	this.password = password;
-	this.repass = repass;
+	this.user_id = user_id;
+	this.user_password = user_password;
+	this.user_name=user_name;
 	}
 public Registdata() {
 	super();
-	this.id = "";
-	this.password = "";
-	this. repass= "";
+	this.user_id = "";
+	this.user_password = "";
+	this.user_name="";
     }
 
-public String getId() {
-	return id;
+public String getUser_id() {
+	return user_id;
 }
 
-public void setId(String id) {
-	this.id = id;
+public void setUser_id(String user_id) {
+	this.user_id = user_id;
 }
 
-public String getPassword() {
-	return password;
+public String getUser_password() {
+	return user_password;
 }
-public void setPassword(String password) {
-	this.password = password;
-}
-
-public String getRepass() {
-	return repass;
+public void setUser_password(String user_password) {
+	this.user_password = user_password;
 }
 
-public void setRepass(String repass) {
-	this.repass = repass;
+
+public String getUser_name() {
+	return user_name;
+}
+
+public void setUser_name(String user_name) {
+	this.user_name = user_name;
 }
 
 }
