@@ -17,7 +17,7 @@
 
 <input type="text" name="ID" placeholder="ID"><br>
 <input type="password" name="PW" placeholder="パスワード"><br>
-<input type="password" name="REPASS" placeholder="再度パスワード入力"><br>
+<input type="text" name="USER" placeholder="ユーザー名"><br>
 
 <input type="submit" name="REGIST" value="登録"><br>
 </form>
