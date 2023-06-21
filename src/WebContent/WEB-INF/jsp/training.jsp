@@ -84,11 +84,11 @@
     </script>
 
 <h1>トレーニングをえらんでね</h1>
-    <a href="/komatsukita/HometrainServlet">家庭用トレーニング</a>
+<a href="/komatsukita/HometrainServlet" style="display: inline-block; padding: 5px; background-color: 	#008CAF; color: white; text-decoration: none;">家庭用トレーニング</a>
     <img src="/komatsukita/img/senpuki.png" width="300" height="200" alt="女の子">
 
 <br>
-    <a href="/komatsukita/GymtrainServlet">ジム用トレーニング</a>
+    <a href="/komatsukita/GymtrainServlet" style="display: inline-block; padding: 5px; background-color: 	#008CAF; color: white; text-decoration: none;">ジム用トレーニング</a>
     <img src="/komatsukita/img/inusan.png" width="300" height="200" alt="女の子">
 
 </body>
