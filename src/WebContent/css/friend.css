@@ -1,9 +1,12 @@
 @charset "UTF-8";
-body {
-    text-align: center;
-
-  }
-
+.frmain{
+text-align: center;
+}
   h1 {
     color: #00ffff; /* 水色の文字色 */
   }
+
+      img {
+        display: block;
+        margin: 0 auto;
+    }
