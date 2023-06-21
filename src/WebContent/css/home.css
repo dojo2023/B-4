@@ -1,14 +1,90 @@
 @charset "UTF-8";
 
 .komatsu4 {
-	margin-left: 600px;
+	margin-left: 500px;
 	vertical-align: top;
-}
-h1 {
 	padding: 0;
-	margin-left: 300px;
+}
+.hm {
+	padding: 0;
+	text-align: center;
+	background-color: #6ae6e2;
+	margin-left: 510px;
+	color: #ffffff;
 }
 
 a {
   color: white;
+}
+
+.start {
+	float: left;
+	margin-left: 80px;
+	padding: 0 50px 0 30px;
+}
+
+.last {
+	float: left;
+}
+
+ma {
+        border: solid 4px #FFD700;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+}
+
+#text3{
+    font-size: 16px;
+    width: 20%;
+    border: none;
+    outline: none;
+    padding-bottom: 8px;
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+#text4{
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-bottom: 8px;
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+.text_underline{
+    position: relative; /*.text_underline::beforeの親要素*/
+    border-top: 1px solid #c2c2c2; /*text3の下線*/
+}
+
+.text_underline::before,
+.text_underline::after{
+    position: absolute;
+    bottom: 0px; /*中央配置*/
+    width: 0px; /*アニメーションで0pxから50%に*/
+    height: 1px; /*高さ*/
+    content: '';
+    background-color: #3be5ae; /*アニメーションの色*/
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+/*中央から右へのアニメーション*/
+.text_underline::before{
+    left: 50%; /*中央配置*/
+}
+
+/*中央から左へのアニメーション*/
+.text_underline::after{
+    right: 50%; /*中央配置*/
+}
+
+#text3:focus + .text_underline::before,
+#text3:focus + .text_underline::after{
+    width: 50%;
+}
+
+#text4:focus + .text_underline::before,
+#text4:focus + .text_underline::after{
+    width: 50%;
 }
