@@ -6,6 +6,11 @@
 <title>traincheck</title>
 </head>
 <body>
-確認
+<h1>かくにん</h1>
+<img src="/komatsukita/img/nekotatsu.png" width=200;>
+<p>カレンダーに登録しますか？</p>
+<input type="text" name="kakunin" value = "腕">
+<input type="submit" value="送信"><br>
+<a href="/komatsukita/HomeServlet">ホームに戻る</a>
 </body>
 </html>
