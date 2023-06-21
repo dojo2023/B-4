@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.komatsu4 {
+	margin-left: 500px;
+	vertical-align: top;
+	padding: 0;
+}
+.hm {
+	padding: 0;
+	text-align: center;
+	background-color: #6ae6e2;
+	margin-left: 510px;
+	color: #ffffff;
+}
+
+a {
+  color: white;
+}
