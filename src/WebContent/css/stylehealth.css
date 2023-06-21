@@ -1,14 +1,11 @@
 @charset "UTF-8";
 
-body {
+.main {
 	text-align:center;
 
 }
 p {
-    position:relative;left: 450px;bottom: 540px;
+    position:relative;left: 400px;top: 0px;
     font-family: "Hannari";
 }
 
-.menu{
-    position:relative;left: 450px;bottom: 550px;
-}
