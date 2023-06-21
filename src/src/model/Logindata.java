@@ -28,7 +28,7 @@ public class Logindata implements Serializable {
 		return user_password;
 	}
 
-	public void setUserpassword(String user_password) {
+	public void setUser_password(String user_password) {
 		this.user_password = user_password;
 	}
 

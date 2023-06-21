@@ -254,4 +254,3 @@ public class RegistdataDAO {
 				return result;
 			}
 		}
-
