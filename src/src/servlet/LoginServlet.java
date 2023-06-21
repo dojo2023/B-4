@@ -59,5 +59,27 @@ public class LoginServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 			dispatcher.forward(request, response);
 		}
+
+
+
+		    // ログイン処理を行い、ログインボーナスのポイント数を取得する
+		    int points =getPoins(user_id, user_password);
+
+
+
+
+		    // ログインボーナスのポイント数をリクエスト属性に設定
+		    request.setAttribute("points", points);
+
+		    // JSPにフォワードして表示
+		    RequestDispatcher dispatcher = request.getRequestDispatcher("loginbonus.jsp");
+		    dispatcher.forward(request, response);
+		    }
+
+	 private int getPoins(String user_id, String user_password) {
+				return 0;
+			}
+
+
 	}
-}
+
