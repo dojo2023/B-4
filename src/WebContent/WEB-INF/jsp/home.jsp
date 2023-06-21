@@ -54,6 +54,7 @@
   </style>
   <link rel="stylesheet" href="/komatsukita/css/home.css">
   <link rel="stylesheet" href="/komatsukita/css/hum.css">
+  <link rel="stylesheet" href="css/calendar.css">
 </head>
 
 <body>
@@ -136,19 +137,72 @@
             });
         });
     </script>
-<h1>ゆるすけあ</h1>
-
+<h1>
+	<span class = "hm">
+    	ゆるっとほーむ
+	</span>
+</h1>
 <div class = "komatsu4">
 	<img src="/komatsukita/img/homewoman.png" width="260" height="130"><br>
 </div>
 <div class = "moku">
-	<input type ="text" name = "dreamweight" placeholder = "もくひょうたいじゅう"><br>
-	<input type = "text" name = "mokuteki" placeholder="もくてき"><br>
+	<div class="group">
+	   <label for="text3" id="l_text3">理想体重</label>
+	   <input id="text3" type="text" placeholder="体重を入力する(数字のみ)">
+	   <div class="text_underline"></div><br>
+	   <label for="text4" id="l_text4">目的</label>
+	   <input id="text4" type="text" placeholder="目的を入力する">
+	   <div class="text_underline"></div><br>
+	</div>
+
 </div>
-	<input type="date" name="calendar1" value = "開始日">
-	<input type="date" name="calendar1" value = "開始日">
+<div class = "ma">
+	<div class = "start">
+		<p>開始日</p><br>
+		<input type="date" name="calendar1" >
+	</div>
+	<div class = "last">
+		<p>期限日</p><br>
+		<input type="date" name="calendar2" value = "開始日">
+	</div>
+</div>
 	<!-- カレンダーを作る -->
-	<button id="prev" type="button">前の月</button>
+
+	 <div class="container-calendar">
+          <h4 id="monthAndYear"></h4>
+          <div class="button-container-calendar">
+              <button id="previous" onclick="previous()">‹</button>
+              <button id="next" onclick="next()">›</button>
+          </div>
+
+          <table class="table-calendar" id="calendar" data-lang="ja">
+              <thead id="thead-month"></thead>
+              <tbody id="calendar-body"></tbody>
+          </table>
+
+          <div class="footer-container-calendar">
+              <label for="month">日付指定：</label>
+              <select id="month" onchange="jump()">
+                  <option value=0>1月</option>
+                  <option value=1>2月</option>
+                  <option value=2>3月</option>
+                  <option value=3>4月</option>
+                  <option value=4>5月</option>
+                  <option value=5>6月</option>
+                  <option value=6>7月</option>
+                  <option value=7>8月</option>
+                  <option value=8>9月</option>
+                  <option value=9>10月</option>
+                  <option value=10>11月</option>
+                  <option value=11>12月</option>
+              </select>
+              <select id="year" onchange="jump()"></select>
+          </div>
+    </div>
+
+    <script src="js/calendar.js" type="text/javascript"></script>
+
+<!-- 	<button id="prev" type="button">前の月</button>
 	<button id="next" type="button">次の月</button>
 	<div id="calendar"></div>
 <div class="calendar">
@@ -229,6 +283,6 @@
     var initialMonth = new Date().getMonth();
     var initialYear = new Date().getFullYear();
     createCalendar(initialMonth, initialYear);
-  </script>
+  </script>-->
 </body>
 </html>
