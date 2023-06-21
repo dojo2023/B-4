@@ -3,14 +3,19 @@ package model;
 
 import java.io.Serializable;
 
-public class Training implements Serializable {
+public class Trainings implements Serializable {
 	private String user_id;
 	private String id;
 	private String parts_name;
 	private String created_at;
 	private String updated_at;
+	public Trainings(String user_id,String parts_name) {
+		super();
+		this.user_id = user_id;
+		this.parts_name = parts_name;
+	}
 
-	public Training(String user_id, String id, String parts_name, String created_at, String updated_at) {
+	public Trainings(String user_id, String id, String parts_name, String created_at, String updated_at) {
 		super();
 		this.user_id = user_id;
 		this.id = id;
@@ -19,7 +24,7 @@ public class Training implements Serializable {
 		this.updated_at = updated_at;
 	}
 
-	public Training () {
+	public Trainings () {
 		super();
 		this.user_id = "";
 		this.id = "";
