@@ -81,6 +81,7 @@
             });
         });
     </script>
+
 <h1>トレーニングをえらんでね</h1>
     <a href="/komatsukita/HometrainServlet">家庭用トレーニング</a>
 
