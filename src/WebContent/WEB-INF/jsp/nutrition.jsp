@@ -21,7 +21,7 @@
             <a href="/komatsukita/HomeServlet">ホーム</a>
         </li>
         <li class="accordion-menu__item">
-            <a href="/komatsukita/HomeServlet">体重管理</a>
+            <a href="/komatsukita/WeightServlet">体重管理</a>
         </li>
         <li class="accordion-menu__item">
             <a href="/komatsukita/NutritionServlet">栄養管理</a>
