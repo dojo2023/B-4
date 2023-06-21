@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.TrainingDao;
+import model.Result;
 
 /**
  * Servlet implementation class TraincheckServlet
@@ -51,11 +52,22 @@ public class TraincheckServlet extends HttpServlet {
 
 		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
 		TrainingDao tDao = new TrainingDao();
-		tDao.insert(id, parts);
-
+//		tDao.insert(id, parts);
+		if (tDao.insert(id, parts)) {	// 登録成功
+//			request.setAttribute("result",
+//			new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
+//			Trainings t=new Trainings(id,parts);
+			// セッションスコープにID,parts_nameを格納する
+//			HttpSession session = request.getSession();
+//			session.setAttribute("parts", t);
+			response.sendRedirect("/komatsukita/HomeServlet");
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Result("登録できません", "必須項目を入力してください", "/simpleBC/MenuServlet"));
+		}
 //		String id="id"; //今はテストサンプルとして「００１」とする
 //		//鍛えたいブイのデータを取得する
-//		String parts="お腹";
 //		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
 //		TrainingDao tDao = new TrainingDao();
 //		tDao.insert(id, parts);
