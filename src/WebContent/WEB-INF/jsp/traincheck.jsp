@@ -6,6 +6,6 @@
 <title>traincheck</title>
 </head>
 <body>
-
+確認
 </body>
 </html>
