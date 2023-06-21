@@ -52,6 +52,7 @@
                 </ul>
             </div>
         </li>
+
         <li class="accordion-menu__item">
             <a href="/komatsukita/GameServlet">育成ゲーム</a>
         </li>
