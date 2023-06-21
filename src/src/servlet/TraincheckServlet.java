@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.TrainingDao;
+
 /**
  * Servlet implementation class TraincheckServlet
  */
@@ -41,9 +43,26 @@ public class TraincheckServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
-		// リクエストパラメータを取得する
+		//鍛えたい部位のデータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String parts_name = request.getParameter("PARTS_NAME");
+		//セッションスコープに保持されてるため不要？
+		String id = request.getParameter("USER_ID");
+		String parts = request.getParameter("PARTS_NAME");
+
+		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
+		TrainingDao tDao = new TrainingDao();
+		tDao.insert(id, parts);
+
+//		String id="id"; //今はテストサンプルとして「００１」とする
+//		//鍛えたいブイのデータを取得する
+//		String parts="お腹";
+//		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
+//		TrainingDao tDao = new TrainingDao();
+//		tDao.insert(id, parts);
+
+
+
+
 	}
 
 }

@@ -7,12 +7,16 @@ public class Training implements Serializable {
 	private String user_id;
 	private String id;
 	private String parts_name;
+	private String created_at;
+	private String updated_at;
 
-	public Training(String user_id, String id, String parts_name) {
+	public Training(String user_id, String id, String parts_name, String created_at, String updated_at) {
 		super();
 		this.user_id = user_id;
 		this.id = id;
 		this.parts_name = parts_name;
+		this.created_at = created_at;
+		this.updated_at = updated_at;
 	}
 
 	public Training () {
@@ -20,6 +24,8 @@ public class Training implements Serializable {
 		this.user_id = "";
 		this.id = "";
 		this.parts_name = "";
+		this.created_at = "";
+		this.updated_at = "";
 	}
 
 	public String getUser_id() {
@@ -40,8 +46,18 @@ public class Training implements Serializable {
 	public void setParts_name(String parts_name) {
 		this.parts_name = parts_name;
 	}
-
-
+	public String getCreated_at() {
+		return created_at;
+	}
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
+	}
+	public String getUpdated_at() {
+		return updated_at;
+	}
+	public void setUpdated_at(String updated_at) {
+		this.updated_at = updated_at;
+	}
 
 }
 
