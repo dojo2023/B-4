@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 public class HometrainServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,13 +26,17 @@ public class HometrainServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//    	//鍛えたい部位のデータを取得する
-//        request.setCharacterEncoding("UTF-8");
+    	//鍛えたい部位のデータを取得する
+        request.setCharacterEncoding("UTF-8");
     	
-//        // 画像から選択された値を取得する
-//        String parts = request.getParameter("PARTS_NAME");
-//        String id = request.getParameter("USER_ID");
+        // 画像から選択された値を取得する
+        String parts = request.getParameter("PARTS_NAME");
+        
 
+        //リクエストスコープに格納する
+        request.setAttribute("parts", parts);
+        
+        
 //        // もしも選択された部位名が空でない場合
 //        if (parts != null && !parts.isEmpty()) {
             // TrainingDaoを使用してデータベースに格納する

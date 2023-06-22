@@ -26,17 +26,35 @@ public class TraincheckServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
-		request.setCharacterEncoding("UTF-8");
-//    	String id = "";    
-        String parts = "";    
+		
+		String foot = "脚";
+		String behind = "背中";
+		String arm = "leg";
+		String sixpack = "お腹";
+		String power = "体力";
+		
+		
+		request.setCharacterEncoding("UTF-8");  
+        String parts = request.getParameter("parts_name");    
+        String str = request.getQueryString();
         
-        // jspから送られてきた値を受け取る
-        parts = request.getParameter("parts_name");    
+        System.out.println(parts);
+        System.out.println(str);
+        System.out.println(foot);
+        System.out.println(behind);
+        System.out.println(arm);
+        System.out.println(sixpack);
+        System.out.println(power);
+        
+    
         
         // 次の画面(jsp)に値を渡す
-        request.setAttribute("parts_name", parts);
+//        request.getAttribute("parts", parts);
+//        request.getAttribute();
         
-        request.getRequestDispatcher("/Traincheck.jsp").forward(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/traincheck.jsp");
+        dispatcher.forward(request, response);
+//        request.getRequestDispatcher("/Traincheck.jsp").forward(request, response);
 		
 		
 	}
