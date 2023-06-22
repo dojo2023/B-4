@@ -6,6 +6,7 @@ public class Charas implements Serializable {
   private String chara_id;
   private String chara_file;
 
+
 public Charas (String id, String chara_id, String chara_file) {
 	super ();
 	this.id = id;

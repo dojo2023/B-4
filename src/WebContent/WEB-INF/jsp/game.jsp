@@ -85,12 +85,16 @@
         });
     </script>
 <div class = main>
-<h1><img src="/komatsukita/img/ヤンデレ育成.png" alt=""></h1>
-<img src="/komatsukita/img/ヤンデレセリフ.png" alt ="" width="180" height="300"><img src="/komatsukita/img/mental_yandere_woman.png" alt ="" width="300" height="350">
+<h1><img src="img/yanderelogo.png" alt=""></h1>
+
+<!-- リクエストスコープに入っているファイル名をここに貼り付ける -->
+<img src="img/${serif_chara.serif}" alt ="" width="180" height="300">
+<!-- リクエストスコープに入っているファイル名をここに貼り付ける -->
+<img src="img/${serif_chara.chara_file}" alt ="" width="300" height="350">
 <br>
 <br>
 <br>
-<img src="/komatsukita/img/powerbottom.png" alt ="" width="190" height="200">
+<img id ="button_img" src="/komatsukita/img/powerbottom.png" alt ="" width="190" height="200">
 <p>1日1回のログインで<br>
 1ポイントもらえるぞ
 </p>
@@ -107,5 +111,6 @@
 <p>残りポイントは<br>7pt</p>
 Copyright © 2023 komatsukita All Right Reserved.
 </div>
+<script src="game"></script>
 </body>
 </html>
