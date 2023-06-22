@@ -1,7 +1,7 @@
 package test;
 
-import dao.LogindataDAO;
-import model.Logindata;
+import dao.LogindatasDAO;
+import model.Logindatas;
 
 public class LogindataDAOTest {
 	public static void main(String[] args) {
@@ -11,8 +11,8 @@ public class LogindataDAOTest {
 
 	// ユーザーが見つかる場合のテスト
 	public static void testIsLoginOK1() {
-		LogindataDAO dao = new LogindataDAO();
-		if (dao.isLoginOK(new Logindata("health", "care0326"))) {
+		LogindatasDAO dao = new LogindatasDAO();
+		if (dao.isLoginOK(new Logindatas("health", "care0326"))) {
 			System.out.println("testIsLoginOK1：テストが成功しました");
 		}
 		else {
@@ -22,8 +22,8 @@ public class LogindataDAOTest {
 
 	// ユーザーが見つからない場合のテスト
 	public static void testIsLoginOK2() {
-		LogindataDAO dao = new LogindataDAO();
-		if (!dao.isLoginOK(new Logindata("health", "care0326"))) {
+		LogindatasDAO dao = new LogindatasDAO();
+		if (!dao.isLoginOK(new Logindatas("health", "care0326"))) {
 			System.out.println("testIsLoginOK2：テストが成功しました");
 		}
 		else {

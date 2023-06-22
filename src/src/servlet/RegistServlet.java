@@ -9,21 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.RegistdataDAO;
-import model.Registdata;
+import dao.UsersDAO;
 import model.Result;
+import model.Users;
 
 /**
- * Servlet implementation class RegistServlet
+ * Servlet implementation class RegistServlet1
  */
 @WebServlet("/RegistServlet")
 public class RegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	/**
-	* @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	*/
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RegistServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 登録ページにフォワードする
     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 	dispatcher.forward(request, response);
@@ -36,13 +44,13 @@ public class RegistServlet extends HttpServlet {
 
 	// リクエストパラメータを取得する
 	request.setCharacterEncoding("UTF-8");
-	String user_id=request.getParameter("USER_ID");
-	String user_password=request.getParameter("USER_PASSWORD");
-	String user_name=request.getParameter("USER_NAME");
+	String user_id=request.getParameter("ID");
+	String user_password=request.getParameter("PW");
+	String user_name=request.getParameter("USER");
 
 	// 登録処理を行う
-			RegistdataDAO bDao = new RegistdataDAO();
-			if (bDao.insert(new Registdata(user_id, user_password, user_name
+			UsersDAO bDao = new UsersDAO();
+			if (bDao.insert(new Users(user_id, user_password, user_name
 					))) {
 	// 登録成功
 				request.setAttribute("result",
@@ -58,4 +66,5 @@ public class RegistServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 			dispatcher.forward(request, response);
 	}
+
 }
