@@ -1,0 +1,216 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/dojo6Data/B4
+
+データベースの修正とダミーデータの増加（ユーザーを増やす）
+
+
+
+
+
+【usersテーブルを作成するSQL文】〆
+create table users (
+  user_id varchar(20) primary key,
+  user_password varchar(20) not null,
+  user_name varchar(10) not null,
+  created_at datetime not null default current_timestamp,
+  updated_at datetime not null default current_timestamp on update current_timestamp
+);
+
+【usersテーブルにサンプルデータを登録するSQL文】〆
+insert into users (user_id, user_password, user_name) 
+values ('health', 'care0326','きんにくまん');
+
+insert into users (user_id, user_password, user_name) 
+values ('sleep', 'bed0325','あくび');
+
+insert into users (user_id, user_password, user_name) 
+values ('mascle', 'mas0417','きんとれ');
+
+insert into users (user_id, user_password, user_name) 
+values ('smile', 'smi0555','スマイル');
+
+insert into users (user_id, user_password, user_name) 
+values ('mario', 'rio0001','マリオ');
+
+
+【personalsテーブルを作成するSQL文】〆
+CREATE TABLE personals (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(20) NOT NULL,
+  dream_weights INT NOT NULL,
+  real_weights INT NOT NULL,
+  starts INT NOT NULL,
+  deadline INT NOT NULL,
+  goal VARCHAR(50) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+【personalsテーブルにサンプルデータを登録するSQL文】〆
+INSERT INTO personals (user_id, dream_weights, real_weights, starts, deadline, goal)
+VALUES ('health', 45, 50, 20230607, 20230707, '美しく綺麗な体型になる');
+
+
+【friendsテーブルを作成するSQL文】〆
+CREATE TABLE friends (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(20) NOT NULL,
+  friends_name VARCHAR(10) NOT NULL,
+  friends_id VARCHAR(20) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+【friendsテーブルにサンプルデータを登録するSQL文】〆
+INSERT INTO friends (user_id, friends_name, friends_id)
+VALUES ('health', 'ふうと', 'haraita');
+
+
+【logindatasテーブルを作成するSQL文】〆
+CREATE TABLE logindatas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(20) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+【logindatasテーブルにサンプルデータを登録するSQL文】〆
+insert into logindatas (user_id)
+values ('health');
+
+
+【managementofpointsテーブルを作成するSQL文】〆
+CREATE TABLE managementofpoints (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(20) NOT NULL,
+  points INT NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+【managementofpointsテーブルにサンプルデータを登録するSQL文】〆
+insert into managementofpoints (user_id, points)
+values ('health', 4);
+
+【trainingsテーブルを作成するSQL文】〆
+CREATE TABLE trainings (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(20) NOT NULL,
+  parts_name VARCHAR(20),
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+【trainingsテーブルにサンプルデータを登録するSQL文】〆
+insert into trainings (user_id, parts_name)
+values ('health', '腕');
+
+
+【charasテーブルを作成するSQL文】〆
+CREATE TABLE charas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  chara_id VARCHAR(4) NOT NULL,
+  chara_file VARCHAR NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+CREATE TABLE charas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  chara_id VARCHAR(4) NOT NULL,
+  chara_file IMAGE NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+【charasテーブルにサンプルデータを登録するSQL文】〆
+INSERT INTO charas (chara_id, chara_file)
+VALUES ('001', '');
+
+【実際のデータ】〆
+insert into charas (chara_id,chara_file)
+values ('A001', 'yandere1.png');
+
+insert into charas (chara_id,chara_file)
+values ('A002', 'yandere1.png');
+
+insert into charas (chara_id,chara_file)
+values ('B001', 'yandere2.png');
+
+insert into charas (chara_id,chara_file)
+values ('B002', 'yandere2.png');
+
+insert into charas (chara_id,chara_file)
+values ('C001', 'yandere3.png');
+
+insert into charas (chara_id,chara_file)
+values ('C002', 'yandere3.png');
+
+insert into charas (chara_id,chara_file)
+values ('D001', 'yandere4.png');
+
+
+【serifsテーブルを作成するSQL文】〆
+CREATE TABLE serifs (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  chara_id VARCHAR(4) NOT NULL,
+  serif VARCHAR NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+【serifsテーブルにサンプルデータを登録するSQL文】〆
+INSERT INTO serifs (chara_id, serif)
+VALUES ('001', '');
+
+【実際のデータ】
+INSERT INTO serifs (chara_id, serif)
+VALUES ('A001','serifu1.png');
+
+INSERT INTO serifs (chara_id, serif)
+VALUES ('A002','serifu2.png');
+
+INSERT INTO serifs (chara_id, serif)
+VALUES ('B001','serifu3.png');
+
+INSERT INTO serifs (chara_id, serif)
+VALUES ('B002','serifu4.png');
+
+INSERT INTO serifs (chara_id, serif)
+VALUES ('C001','serifu5.png');
+
+INSERT INTO serifs (chara_id, serif)
+VALUES ('C002','serifu6.png');
+
+INSERT INTO serifs (chara_id, serif)
+VALUES ('D001','serifu7.png');
+
+
+【usercharasテーブルを作成するSQL文】〆
+CREATE TABLE usercharas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(20) NOT NULL,
+  chara_id VARCHAR(4) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+【usercharasテーブルにサンプルデータを登録するSQL文】〆
+INSERT INTO usercharas (user_id, chara_id)
+VALUES ('health', 'A001');
+
+INSERT INTO usercharas (user_id, chara_id)
+VALUES ('sleep', 'A001');
+
+INSERT INTO usercharas (user_id, chara_id)
+VALUES ('mascle', 'A001');
+
+INSERT INTO usercharas (user_id, chara_id)
+VALUES ('smile', 'A001');
+
+INSERT INTO usercharas (user_id, chara_id)
+VALUES ('mario', 'A001');
