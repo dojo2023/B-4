@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TrainingDao;
-import model.Result;
-
 /**
  * Servlet implementation class TraincheckServlet
  */
@@ -29,8 +26,13 @@ public class TraincheckServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
-		// トレーニング確認画面ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/traincheck.jsp");
+		// セッションスコープからデータを取得
+        String partsName = (String) request.getSession().getAttribute("parts_name");
+
+        // JSPにデータを渡す
+        request.setAttribute("parts_name", partsName);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/traincheck.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -44,28 +46,39 @@ public class TraincheckServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
+
+
+
 		//鍛えたい部位のデータを取得する
-		request.setCharacterEncoding("UTF-8");
-		//セッションスコープに保持されてるため不要？
-		String id = request.getParameter("USER_ID");
-		String parts = request.getParameter("PARTS_NAME");
+//		request.setCharacterEncoding("UTF-8");
+//		//セッションスコープに保持されてるため不要？
+//		String id = request.getParameter("USER_ID");
+//		String parts = request.getParameter("PARTS_NAME");
 
 		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
-		TrainingDao tDao = new TrainingDao();
-//		tDao.insert(id, parts);
-		if (tDao.insert(id, parts)) {	// 登録成功
+//		TrainingDao tDao = new TrainingDao();
+////		tDao.insert(id, parts);
+//		if (tDao.insert(id, parts)) {	// 登録成功
+////			request.setAttribute("result",
+////			new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
+////			Trainings t=new Trainings(id,parts);
+//			// セッションスコープにID,parts_nameを格納する
+////			HttpSession session = request.getSession();
+////			session.setAttribute("parts", t);
+//			response.sendRedirect("/komatsukita/HomeServlet");
+//		}
+//		else {												// 登録失敗
 //			request.setAttribute("result",
-//			new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
-//			Trainings t=new Trainings(id,parts);
-			// セッションスコープにID,parts_nameを格納する
-//			HttpSession session = request.getSession();
-//			session.setAttribute("parts", t);
-			response.sendRedirect("/komatsukita/HomeServlet");
-		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("登録できません", "必須項目を入力してください", "/simpleBC/MenuServlet"));
-		}
+//			new Result("登録できません", "必須項目を入力してください", "/simpleBC/MenuServlet"));
+//		}
+
+		// セッションオブジェクトを取得
+//		HttpSession session = request.getSession();
+//
+//		// セッションスコープから「parts_name」データを取得
+//		String partsnames = (String) session.getAttribute("parts_name");
+
+		//
 //		String id="id"; //今はテストサンプルとして「００１」とする
 //		//鍛えたいブイのデータを取得する
 //		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
