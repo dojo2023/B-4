@@ -147,7 +147,7 @@
 </div>
 <div class = "moku">
 	<div class="group">
-	   <label for="text3" id="l_text3">理想体重</label>
+	   <label for="text3" id="l_text3">理想体重</label><br>
 	   <input id="text3" type="text" placeholder="体重を入力する(数字のみ)">
 	   <div class="text_underline"></div><br>
 	   <label for="text4" id="l_text4">目的</label>

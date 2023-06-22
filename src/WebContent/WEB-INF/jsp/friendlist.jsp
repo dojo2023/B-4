@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>ともだち</h1>
+<h1>フレンドリスト</h1>
+    <ul>
+        <li>フレンド1</li>
+        <li>フレンド2</li>
+        <li>フレンド3</li>
+        <!-- ここにフレンドリストを動的に表示するためのJavaコードを追加します -->
+    </ul>
 </body>
 </html>

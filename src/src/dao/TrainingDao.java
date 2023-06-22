@@ -22,7 +22,7 @@ public class TrainingDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
 
 				// SQL文を準備する
-				String sql = "insert into trainings (user_id,parts_name,created_at,updated_at)  values (?, ?,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+				String sql = "insert into trainings (user_id,parts_name)  values (?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる

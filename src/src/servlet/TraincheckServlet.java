@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TrainingDao;
-import model.Result;
-
 /**
  * Servlet implementation class TraincheckServlet
  */
@@ -29,52 +26,67 @@ public class TraincheckServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
-		// トレーニング確認画面ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/traincheck.jsp");
-		dispatcher.forward(request, response);
+		request.setCharacterEncoding("UTF-8");
+//    	String id = "";    
+        String parts = "";    
+        
+        // jspから送られてきた値を受け取る
+        parts = request.getParameter("parts_name");    
+        
+        // 次の画面(jsp)に値を渡す
+        request.setAttribute("parts_name", parts);
+        
+        request.getRequestDispatcher("/Traincheck.jsp").forward(request, response);
+		
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		/*HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/komatsukita/LoginServlet");
-				return;
-			}*/
-		//鍛えたい部位のデータを取得する
-		request.setCharacterEncoding("UTF-8");
-		//セッションスコープに保持されてるため不要？
-		String id = request.getParameter("USER_ID");
-		String parts = request.getParameter("PARTS_NAME");
-
-		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
-		TrainingDao tDao = new TrainingDao();
-//		tDao.insert(id, parts);
-		if (tDao.insert(id, parts)) {	// 登録成功
-//			request.setAttribute("result",
-//			new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
-//			Trainings t=new Trainings(id,parts);
-			// セッションスコープにID,parts_nameを格納する
-//			HttpSession session = request.getSession();
-//			session.setAttribute("parts", t);
-			response.sendRedirect("/komatsukita/HomeServlet");
-		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("登録できません", "必須項目を入力してください", "/simpleBC/MenuServlet"));
-		}
-//		String id="id"; //今はテストサンプルとして「００１」とする
-//		//鍛えたいブイのデータを取得する
-//		//idと取得した部位を引数にしてtrainsテーブルにデータを追加するdaoを呼び出す
-//		TrainingDao tDao = new TrainingDao();
-//		tDao.insert(id, parts);
-
-
-
-
+	public class HomeServlet extends HttpServlet {
+	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    	request.setCharacterEncoding("UTF-8");
+	    	
+	    	// トレーニング選択ページにフォワードする
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/traincheck.jsp");
+	        dispatcher.forward(request, response);
+	    	
+//	    	String id = "";    
+	        String parts = "";    
+	        
+	        // jspから送られてきた値を受け取る
+	        parts = request.getParameter("parts_name");    
+	        
+	        // 次の画面(jsp)に値を渡す
+	        request.setAttribute("parts_name", parts);
+	        
+	    	
+	    	// フォームからのデータを取得
+//	        String parts = request.getParameter("parts_name");
+//
+//	     // TrainingDaoを使用してデータベースに格納する
+//            TrainingDao tDao = new TrainingDao();
+//            if (tDao.insert(parts)) { // 格納成功
+//                Trainings training = new Trainings(parts);
+//
+//                // セッションに格納する
+//                HttpSession session = request.getSession();
+//                session.setAttribute("training", training);
+//                response.sendRedirect("/komatsukita/TraincheckServlet");
+//            } else { // 格納失敗
+//                request.setAttribute("result",
+//                        new Result("登録できません", "必須項目を入力してください", "/komatsukita/MenuServlet"));
+//                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/hometrain.jsp");
+//                dispatcher.forward(request, response);
+//            }
+//        } else {
+//            request.setAttribute("result",
+//                    new Result("登録できません", "必須項目を入力してください", "/komatsukita/MenuServlet"));
+//            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/hometrain.jsp");
+//            dispatcher.forward(request, response);
+//        }
+	    }
 	}
 
 }
