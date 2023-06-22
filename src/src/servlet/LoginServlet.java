@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.LogindataDAO;
+import dao.LogindatasDAO;
 import model.LoginUser;
-import model.Logindata;
+import model.Logindatas;
 import model.Result;
 
 /**
@@ -37,12 +37,12 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String user_id = request.getParameter("USER_ID");
-		String user_password = request.getParameter("USER_PASSWORD");
+		String user_id = request.getParameter("ID");
+		String user_password = request.getParameter("PW");
 
 		// ログイン処理を行う
-		LogindataDAO iDao = new LogindataDAO();
-		if (iDao.isLoginOK(new Logindata(user_id,user_password))) {	// ログイン成功
+		LogindatasDAO iDao = new LogindatasDAO();
+		if (iDao.isLoginOK(new Logindatas(user_id,user_password))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("id", new LoginUser(user_id));
@@ -62,24 +62,6 @@ public class LoginServlet extends HttpServlet {
 
 
 
-		    // ログイン処理を行い、ログインボーナスのポイント数を取得する
-		    int points =getPoins(user_id, user_password);
-
-
-
-
-		    // ログインボーナスのポイント数をリクエスト属性に設定
-		    request.setAttribute("points", points);
-
-		    // JSPにフォワードして表示
-		    RequestDispatcher dispatcher = request.getRequestDispatcher("loginbonus.jsp");
-		    dispatcher.forward(request, response);
-		    }
-
-	 private int getPoins(String user_id, String user_password) {
-				return 0;
-			}
-
 
 	}
-
+}

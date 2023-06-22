@@ -1,19 +1,19 @@
 package model;
 import java.io.Serializable;
 
-public class Registdata implements Serializable {
+public class Users implements Serializable {
 	private String user_id;
 	private String user_password;
 	private String user_name;
 
-	public Registdata(String user_id, String user_password, String user_name) {
+	public Users(String user_id, String user_password, String user_name) {
 		super();
 		this.user_id = user_id;
 		this.user_password = user_password;
 		this.user_name = user_name;
 	}
 
-	public Registdata() {
+	public Users() {
 		super();
 		this.user_id = "";
 		this.user_password = "";
