@@ -36,6 +36,7 @@ public class HometrainServlet extends HttpServlet {
         //リクエストスコープに格納する
         request.setAttribute("parts", parts);
         
+        
              
     }
 }
