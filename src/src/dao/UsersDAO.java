@@ -49,9 +49,9 @@ public class UsersDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Users card = new Users(
-						rs.getString("USER_ID"),
-						rs.getString("USER_PASSWORD"),
-						rs.getString("USER＿NAME"));
+						rs.getString("user_id"),
+						rs.getString("user_password"),
+						rs.getString("user_name"));
 				cardList.add(card);
 			}
 		} catch (SQLException e) {
