@@ -98,7 +98,7 @@ public class TraincheckServlet extends HttpServlet {
 	    	
 	    	// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
-			String parts = request.getParameter("PARTS_NAME");
+			String parts = request.getParameter("kakunin");
 			
 			//セッションスコープからIDを取得する
 			
@@ -115,7 +115,9 @@ public class TraincheckServlet extends HttpServlet {
 				request.setAttribute("result",
 				new Result("登録できません", "必須項目を入力してください", "/WEB-INF/jsp/result.jsp"));
 			}
-	    	
+			//戻る
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+			dispatcher.forward(request, response);
 
 	    }  
     }    	
