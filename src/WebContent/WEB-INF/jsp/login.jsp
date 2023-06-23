@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ゆったりへるすけあ</title>
+
 </head>
 <body>
 <div style="text-align: center;">
