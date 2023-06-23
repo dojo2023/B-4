@@ -86,10 +86,12 @@
 	<span class = "frmain">
     <img src="/komatsukita/img/komatsu12.png" width="250" height="180" alt="女の子">
     <h1>ともだち</h1>
-    <form action="friendRegistration.jsp" method="get" id="searchForm">
+    <form method="POST" action="/komatsukita/FriendCheckServlet">
         <input type="search" name="search" placeholder="IDをにゅうりょくする" id="searchInput">
-        <input type="image" src="/komatsukita/img/search.png" width="30" height="30" alt="検索" value="検索する">
+       <input type="image" src="/komatsukita/img/search.png" width="30" height="30" alt="検索" value="検索する">
+   <input type="submit" value="検索する">
     </form>
+
 
     <script>
         'use strict';
@@ -99,7 +101,13 @@
             var searchInput = document.getElementById('searchInput').value;
             // ここでデータベースに対して検索を行う処理を実装する
             // 仮にsearchInputがフレンドのIDと一致するかどうかを判定する
-
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/komatsukita/FriendCheckServlet');
+			xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			xhr.send( 'id='+ searchInput );
+		    if(xhr.readyState === 4 && xhr.status === 200) {
+		        window.alert( xhr.responseText );
+		    }
             // 仮に一致するIDがあるとする
             var foundFriend = true;
 

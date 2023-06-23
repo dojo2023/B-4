@@ -59,7 +59,7 @@ public class FriendServlet extends HttpServlet {
 //		}
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String friends_id = request.getParameter("FRIEND_ID");
+		String friends_id = request.getParameter("ID");
 
 		// 登録処理を行う
 //		FriendsDao
