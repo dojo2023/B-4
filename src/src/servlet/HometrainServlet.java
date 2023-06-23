@@ -36,30 +36,6 @@ public class HometrainServlet extends HttpServlet {
         //リクエストスコープに格納する
         request.setAttribute("parts", parts);
         
-        
-//        // もしも選択された部位名が空でない場合
-//        if (parts != null && !parts.isEmpty()) {
-            // TrainingDaoを使用してデータベースに格納する
-
-
-//            if (tDao.insert(id,parts)) { // 格納成功
-//                Trainings training = new Trainings(id,parts);
-//
-//                // セッションに格納する
-//                HttpSession session = request.getSession();
-//                session.setAttribute("trainings", training);
-//                response.sendRedirect("/komatsukita/TraincheckServlet");
-//            } else { // 格納失敗
-//                request.setAttribute("result",
-//                        new Result("登録できません", "必須項目を入力してください", "/komatsukita/MenuServlet"));
-//                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/hometrain.jsp");
-//                dispatcher.forward(request, response);
-//            }
-//        } else {
-//            request.setAttribute("result",
-//                    new Result("登録できません", "必須項目を入力してください", "/komatsukita/MenuServlet"));
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/hometrain.jsp");
-//            dispatcher.forward(request, response);
-//        }
+             
     }
 }
