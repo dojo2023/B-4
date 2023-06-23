@@ -88,10 +88,10 @@
     <map name="ImageMap">
 
       <area shape="rect" coords="189,347,218,371" href="/komatsukita/TraincheckServlet?parts_name=foot" alt="脚" />
-      <area shape="rect" coords="209,231,262,261" href="/komatsukita/TraincheckServlet?parts_name=behind" alt="背中" />
-      <area shape="rect" coords="303,261,358,291" href="/komatsukita/TraincheckServlet?parts_name=arm" alt="腕" />
-      <area shape="rect" coords="385,263,426,289" href="/komatsukita/TraincheckServlet?parts_name=sixpack" alt="お腹" />
-      <area shape="rect" coords="452,294,515,320" href="/komatsukita/TraincheckServlet?parts_name=power" alt="体力" />
+      <area shape="rect" coords="209,231,262,261" href="/komatsukita/TraincheckServlet?parts_name=体力" alt="体力" />
+      <area shape="rect" coords="303,261,358,291" href="/komatsukita/TraincheckServlet?parts_name=お腹" alt="お腹" />
+      <area shape="rect" coords="385,263,426,289" href="/komatsukita/TraincheckServlet?parts_name=腕" alt="腕" />
+      <area shape="rect" coords="452,294,515,320" href="/komatsukita/TraincheckServlet?parts_name=背中" alt="背中" />
     </map>
 </form> 
 

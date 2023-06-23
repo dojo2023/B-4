@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.TrainingDao;
+import model.Result;
 
 /**
  * Servlet implementation class TraincheckServlet
@@ -29,7 +33,7 @@ public class TraincheckServlet extends HttpServlet {
 		
 		String foot = "脚";
 		String behind = "背中";
-		String arm = "leg";
+		String arm = "腕";
 		String sixpack = "お腹";
 		String power = "体力";
 		
@@ -38,7 +42,6 @@ public class TraincheckServlet extends HttpServlet {
         String parts = request.getParameter("parts_name");    
         String str = request.getQueryString();
         
-        System.out.println(parts);
         System.out.println(str);
         System.out.println(foot);
         System.out.println(behind);
@@ -46,9 +49,35 @@ public class TraincheckServlet extends HttpServlet {
         System.out.println(sixpack);
         System.out.println(power);
         
-    
+          
         
-        // 次の画面(jsp)に値を渡す
+//        // jspから送られてきた値を受け取る
+//        parts = request.getParameter("parts_name");    
+        
+        
+        
+        switch (parts) {
+        case "foot":
+        	foot = "脚";
+        	break;
+        case "power":
+        	power = "体力";
+        	break;
+        case "sixpack":
+        	sixpack = "お腹";
+        	break;
+        case "arm":
+        	arm = "腕";
+        	break;
+        case "behind":
+        	behind = "背中";
+        	break;
+        }
+        
+     // 次の画面(jsp)に値を渡す
+        request.setAttribute("parts_name", parts);
+        
+        // 次の画面(jsp)に値を渡す(カレンダーに
 //        request.getAttribute("parts", parts);
 //        request.getAttribute();
         
@@ -62,24 +91,34 @@ public class TraincheckServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public class HomeServlet extends HttpServlet {
+	
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    	request.setCharacterEncoding("UTF-8");
 	    	
-	    	// トレーニング選択ページにフォワードする
-	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/traincheck.jsp");
-	        dispatcher.forward(request, response);
 	    	
-//	    	String id = "";    
-	        String parts = "";    
-	        
-	        // jspから送られてきた値を受け取る
-	        parts = request.getParameter("parts_name");    
-	        
-	        // 次の画面(jsp)に値を渡す
-	        request.setAttribute("parts_name", parts);
+	    	// リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			String parts = request.getParameter("PARTS_NAME");
+			
+			//セッションスコープからIDを取得する
+			
+			HttpSession session = request.getSession();
+			String id = (String)session.getAttribute("id");
+			
+	    	// 登録処理を行う
+			TrainingDao tDao = new TrainingDao();
+			if (tDao.insert(id,parts)) {	// 登録成功
+				request.setAttribute("result",
+				new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
+			}
+			else {												// 登録失敗
+				request.setAttribute("result",
+				new Result("登録できません", "必須項目を入力してください", "/WEB-INF/jsp/result.jsp"));
+			}
+	    	
+
 	    }  
     }    	
 
 
-}
+

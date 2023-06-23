@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.LogindatasDAO;
-import model.LoginUser;
 import model.Logindatas;
 import model.Result;
 
@@ -45,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		if (iDao.isLoginOK(new Logindatas(user_id,user_password))) {	// ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("id", new LoginUser(user_id));
+			session.setAttribute("id", user_id);
 
 			// ホームサーブレットにリダイレクトする
 			response.sendRedirect("/komatsukita/HomeServlet");

@@ -24,9 +24,7 @@ public class HomeServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		/*HttpSession session = request.getSession();
@@ -35,7 +33,12 @@ public class HomeServlet extends HttpServlet {
 			return;
 		}*/
 
-		// トレーニング選択ページにフォワードする
+		
+		
+		
+		
+
+		// ホーム画面ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
 		dispatcher.forward(request, response);
 	}
