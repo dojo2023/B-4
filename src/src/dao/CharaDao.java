@@ -6,14 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Serifus;
+
+
 
 
 public class CharaDao {
 
-	public String select(String user) {
+	public Serifus select(String user_id) {
 		Connection conn = null;
-		String chara_file = "";
-
+		Serifus sf = new Serifus();
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
@@ -21,13 +23,14 @@ public class CharaDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
 
+
 			// SQL文を準備する
-			String sql = "SELECT chara_file FROM usercharas as uc join charas as c on c.chara_id = uc.chara_id where user_id = ?";
+			String sql = "SELECT uc.user_id,uc.chara_id,se.serif ,ch.chara_file  FROM USERCHARAS as uc join serifs as se on uc.chara_id = se.chara_id  join charas as ch on uc.chara_id = ch.chara_id where user_id= ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
 
-				pStmt.setString(1, user);
+				pStmt.setString(1, user_id);
 
 
 			// SQL文を実行し、結果表を取得する
@@ -35,16 +38,21 @@ public class CharaDao {
 
 			// 結果表をコレクションにコピーする
 			rs.next();
-			chara_file=rs.getString("chara_file");
+			System.out.println(rs.getString("chara_file"));
+				sf.setChara_file(rs.getString("chara_file"));
+				sf.setSerif(rs.getString("serif"));
+
+
+//			chara_file=rs.getString("chara_file");
 
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			chara_file = null;
+
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			chara_file = null;
+
 		}
 		finally {
 			// データベースを切断
@@ -54,12 +62,12 @@ public class CharaDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					chara_file = null;
+
 				}
 			}
 		}
 
 		// 結果を返す
-		return chara_file;
+		return sf;
 	}
 }
