@@ -16,17 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GymtrainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GymtrainServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		/*HttpSession session = request.getSession();
@@ -37,6 +27,21 @@ public class GymtrainServlet extends HttpServlet {
 		// トレーニング選択ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gymtrain.jsp");
 		dispatcher.forward(request, response);
+		
+		
+		
+		
 	}
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		//鍛えたい部位のデータを取得する
+		request.setCharacterEncoding("UTF-8");
+		
+		// 画像から選択された値を取得する
+		String parts = request.getParameter("PARTS_NAME");
+		
+		
+		//リクエストスコープに格納する
+		request.setAttribute("parts", parts);
+	}
 }

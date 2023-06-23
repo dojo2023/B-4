@@ -83,14 +83,16 @@
     </script>
 <h1>ジム用トレーニング</h1>
 <h2>トレーニングメニュー</h2>
+<form method="POST" action="/komatsukita/HometrainServlet">
     <img src="/komatsukita/img/map2.png" usemap="#ImageMap" alt="" />
     <map name="ImageMap">
-      <area shape="rect" coords="143,295,199,326" href="/komatsukita/GympowerServlet" alt="" />
-      <area shape="rect" coords="291,193,362,225" href="/komatsukita/GymsixpackServlet" alt="" />
-      <area shape="rect" coords="280,309,333,338" href="/komatsukita/GymlegServlet" alt="" />
-      <area shape="rect" coords="393,184,454,220" href="/komatsukita/GymbehindServlet" alt="" />
-      <area shape="rect" coords="365,228,412,259" href="/komatsukita/GymarmServlet" alt="" />
+      <area shape="rect" coords="143,295,199,326" href="/komatsukita/TraincheckServlet?parts_name=体力" alt="体力" />
+      <area shape="rect" coords="291,193,362,225" href="/komatsukita/TraincheckServlet?parts_name=お腹" alt="お腹" />
+      <area shape="rect" coords="280,309,333,338" href="/komatsukita/TraincheckServlet?parts_name=脚" alt="脚" />
+      <area shape="rect" coords="393,184,454,220" href="/komatsukita/TraincheckServlet?parts_name=背中" alt="背中" />
+      <area shape="rect" coords="365,228,412,259" href="/komatsukita/TraincheckServlet?parts_name=腕" alt="腕" />
     </map>
+</form>
 <br>
  <a href="/komatsukita/TrainingServlet" style="display: inline-block; padding: 5px; background-color: 	#008CAF; color: white; text-decoration: none;">トレーニング選択ページに戻る</a>
 </body>
