@@ -6,17 +6,6 @@
 <meta charset="UTF-8">
 <title>家庭用トレーニング</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
-
-<style>
-body {
-　　 　/*背景画像は高さを持たないため、heightの指定が必要*/ 
-　　　 height: 1000px; 
-      /*相対パスで画像ファイルを指定*/
-　　　 background-image: url(/komatsukita/img/katei.png);
-}
-
-</style>
-
 </head>
 <body>
 <div class="hamburger-menu">
@@ -94,19 +83,19 @@ body {
     </script>
 <h1>家庭用トレーニング</h1>
 <h2>トレーニングメニュー</h2>
-
-
- <form method="POST" action="/komatsukita/HometrainServlet">
+<form method="POST" action="/komatsukita/HometrainServlet">
     <img src="/komatsukita/img/map1.png" usemap="#ImageMap" alt="" />
     <map name="ImageMap">
 
-      <area shape="rect" coords="189,347,218,371" href="/komatsukita/TraincheckServlet?parts_name=foot" alt="脚" />
-      <area shape="rect" coords="209,231,262,261" href="/komatsukita/TraincheckServlet?parts_name=behind" alt="背中" />
-      <area shape="rect" coords="303,261,358,291" href="/komatsukita/TraincheckServlet?parts_name=arm" alt="腕" />
-      <area shape="rect" coords="385,263,426,289" href="/komatsukita/TraincheckServlet?parts_name=sixpack" alt="お腹" />
-      <area shape="rect" coords="452,294,515,320" href="/komatsukita/TraincheckServlet?parts_name=power" alt="体力" />
+      <area shape="rect" coords="189,347,218,371" href="/komatsukita/TraincheckServlet?parts_name=脚" alt="脚" />
+      <area shape="rect" coords="209,231,262,261" href="/komatsukita/TraincheckServlet?parts_name=背中" alt="背中" />
+      <area shape="rect" coords="303,261,358,291" href="/komatsukita/TraincheckServlet" alt="脚" />
+
+      <area shape="rect" coords="385,263,426,289" href="/komatsukita/HomearmServlet" alt="" />
+      <area shape="rect" coords="452,294,515,320" href="/komatsukita/HomebehindServlet" alt="" />
     </map>
-</form> 
+
  <a href="/komatsukita/TrainingServlet" style="display: inline-block; padding: 5px; background-color: 	#008CAF; color: white; text-decoration: none;">トレーニング選択ページに戻る</a>
+
 </body>
 </html>

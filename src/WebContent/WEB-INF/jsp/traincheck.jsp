@@ -9,9 +9,12 @@
 <h1>かくにん</h1>
 <img src="/komatsukita/img/nekotatsu.png" width=200;>
 <p>カレンダーに登録しますか？</p>
+
 <form method="POST" action="/komatsukita/TraincheckServlet">
-<input id = "parts_name" type = "text" value="${parts}" >
-<input type="submit" value="送信"><br>
+	<input type="text" name="kakunin" value="${parts_name}">
+
+	<input type="submit" name="sub" value="送信"><br>
+
 </form>
 <a href="/komatsukita/HomeServlet">ホームに戻る</a>
 </body>
