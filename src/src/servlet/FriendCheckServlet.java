@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
 
@@ -46,7 +47,7 @@ public class FriendCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 
 		//idを受け取る
@@ -54,12 +55,13 @@ public class FriendCheckServlet extends HttpServlet {
 		//idで検索する
 		UsersDAO uDao = new UsersDAO();
 
-
-
+		String user_name = uDao.setUser_username(id);
+		session.setAttribute("user_name",user_name);
 
 		//結果を返す
 		if(uDao.setUser_id(id)) {
 			//いた
+
 			response.getWriter().append("true");
 		}else {
 			//いない

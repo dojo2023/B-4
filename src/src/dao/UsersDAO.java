@@ -176,7 +176,55 @@ public class UsersDAO {
 		return checkResult;
 	}
 
+//SELECT user_name FROM USERS  where user_id = 'health'
+	public String setUser_username(String id) {
+		Connection conn = null;
+		String user_name="";
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
+
+			// SQL文を準備する
+			String sql = "SELECT user_name FROM USERS  where user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を完成させる
+
+			pStmt.setString(1,id);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			rs.next();
+			if(rs.getString(user_name) !=null) {
+			user_name = rs.getString(user_name);
+			}
 
 
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+
+				}
+			}
+		}
+
+		// 結果を返す
+		return user_name;
+	}
 
 }
