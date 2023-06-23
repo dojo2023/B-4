@@ -78,33 +78,8 @@ public class TraincheckServlet extends HttpServlet {
 	        
 	        // 次の画面(jsp)に値を渡す
 	        request.setAttribute("parts_name", parts);
-	        
-	    	
-	    	// フォームからのデータを取得
-//	        String parts = request.getParameter("parts_name");
-//
-//	     // TrainingDaoを使用してデータベースに格納する
-//            TrainingDao tDao = new TrainingDao();
-//            if (tDao.insert(parts)) { // 格納成功
-//                Trainings training = new Trainings(parts);
-//
-//                // セッションに格納する
-//                HttpSession session = request.getSession();
-//                session.setAttribute("training", training);
-//                response.sendRedirect("/komatsukita/TraincheckServlet");
-//            } else { // 格納失敗
-//                request.setAttribute("result",
-//                        new Result("登録できません", "必須項目を入力してください", "/komatsukita/MenuServlet"));
-//                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/hometrain.jsp");
-//                dispatcher.forward(request, response);
-//            }
-//        } else {
-//            request.setAttribute("result",
-//                    new Result("登録できません", "必須項目を入力してください", "/komatsukita/MenuServlet"));
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/hometrain.jsp");
-//            dispatcher.forward(request, response);
-//        }
-	    }
-	}
+	    }  
+    }    	
+
 
 }
