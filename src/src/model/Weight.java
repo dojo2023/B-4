@@ -38,5 +38,10 @@ public class Weight implements Serializable {
 		this.data3 = data3;
 	}
 
+	public void setWeight(int int1) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
 
 }
