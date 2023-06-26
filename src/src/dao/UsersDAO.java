@@ -187,7 +187,7 @@ public class UsersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "select count(*) from USERS where USER_ID = ? and USER_PASSWORD = ?";
+			String sql = "select count(*) from USERS where USER_ID = ? and  USER_PASSWORD = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, users.getUser_id());
 			pStmt.setString(2,users.getUser_password());

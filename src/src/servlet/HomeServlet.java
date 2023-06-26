@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.CalenderDao;
+import model.Weight;
 
 /**
  * Servlet implementation class HomeServlet
@@ -26,6 +30,11 @@ public class HomeServlet extends HttpServlet {
 			response.sendRedirect("/komatsukita/LoginServlet");
 			return;
 		}*/
+		
+		CalenderDao cDao = new CalenderDao();
+		ArrayList<Weight> weightList = new ArrayList<>();
+		weightList = cDao.selectWeight(1);
+		request.setAttribute("weightList", weightList);
 
 		
 		

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,10 +87,10 @@
 	<span class = "frmain">
     <img src="/komatsukita/img/komatsu12.png" width="250" height="180" alt="女の子">
     <h1>ともだち</h1>
-    <form method="POST" action="/komatsukita/FriendCheckServlet">
+    <form action="friendRegistration.jsp" method="get" id="searchForm">
         <input type="search" name="search" placeholder="IDをにゅうりょくする" id="searchInput">
        <input type="image" src="/komatsukita/img/search.png" width="30" height="30" alt="検索" value="検索する">
-   <input type="submit" value="検索する">
+   <input type="submit value="検索する"">
     </form>
 
 
@@ -102,21 +103,29 @@
             // ここでデータベースに対して検索を行う処理を実装する
             // 仮にsearchInputがフレンドのIDと一致するかどうかを判定する
 			var xhr = new XMLHttpRequest();
-			xhr.open('POST', '/komatsukita/FriendCheckServlet');
+			xhr.open('POST', '/komatsukita/FriendCheckServlet',false);
 			xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-			xhr.send( 'id='+ searchInput );
+			xhr.send( 'search='+ searchInput );
 		    if(xhr.readyState === 4 && xhr.status === 200) {
-		        window.alert( xhr.responseText );
+		        //window.alert( xhr.responseText );
 		    }
             // 仮に一致するIDがあるとする
-            var foundFriend = true;
+          <!--  var foundFriend = true; -->
 
-            if (foundFriend) {
+            if (xhr.responseText == "true") {
                 // サブウィンドウを開く
                 var confirmWindow = window.open("", "confirmWindow", "width=400,height=200");
-                confirmWindow.document.write("<p>登録する？</p>");
-                confirmWindow.document.write("<button onclick=\"registerFriend()\">はい</button>");
+                confirmWindow.document.clear();
+
+                confirmWindow.document.write("<form action=\"/komatsukita/FriendServlet\" method=\"POST\" >");
+                confirmWindow.document.write("<p>とうろくする？</p>");
+                //confirmWindow.document.write("<button onclick=\"registerFriend()\">はい</button>");
+                confirmWindow.document.write("<input type=\"hidden\" name=\"user_id\" value=\""+searchInput+"\">");
+
+                confirmWindow.document.write("${user_name}");
+                confirmWindow.document.write("<input type=\"submit\" value=\"はい\">");
                 confirmWindow.document.write("<button onclick=\"closeWindow()\">いいえ</button>");
+                confirmWindow.document.write("</form>");
             } else {
                 // 一致するIDがない場合の処理
                 alert("一致するIDがありません");
