@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -156,40 +158,41 @@
 	</div>
 
 </div>
+
 <div class = "ma">
 	<div class = "start">
 		<p>開始日</p><br>
-		<input type="date" name="calendar1" >
+		<input type="date" name="calendar1" ><br>
 	</div>
 	<div class = "last">
 		<p>期限日</p><br>
 		<input type="date" name="calendar2" value = "開始日"><br>
 	</div>
 </div>
-<div class="body">
-<button id="prev" type="button">前の月</button>
-            <button id="next" type="button">次の月</button>
-            <div id="calendar"></div>
-           <script src="js/calender_sample.js"></script>
-</div>
-			<div id="weight_list">
-				<c:forEach var="e" items="${weightList}" varStatus="status">
-					<form>
-						<input type="hidden" name="weight" value="${e.weight}" id="weight${status.index}"> <br>
-						<input type="hidden" name="date" value="${e.created_date}" id="date${status.index}"> <br>
-						<input type="hidden" name="time" value="${e.created_time}" id="time${status.index}"> <br>
-						<input type="hidden" name="count" class="${status.last}" id="${status.index}"> <br>
+<br>
+ 
+<div class="wrapper">
+    <div class="body">
+      <button id="prev" type="button">前の月</button>
+      <button id="next" type="button">次の月</button>
+      <div id="calendar" class="container-calendar"></div>
+    </div>
 
-
-
-
-					</form>
-
-				</c:forEach>
-			</div>
+    <div id="parts_list">
+      <c:forEach var="e" items="${calenderList}" varStatus="status">
+        <form>
+          <input type="hidden" name="parts" value="${e.parts}" id="parts${status.index}"> <br>
+          <input type="hidden" name="date" value="${e.created_date}" id="date${status.index}"> <br>
+          <input type="hidden" name="time" value="${e.created_time}" id="time${status.index}"> <br>
+          <input type="hidden" name="count" class="${status.last}" id="${status.index}"> <br>
+        </form>
+      </c:forEach>
+    </div>
+  </div> 
+  
 	<!-- カレンダーを作る -->
-
-<!--  	 <div class="container-calendar">
+<!--
+ 	 <div class="container-calendar">
           <h4 id="monthAndYear"></h4>
           <div class="button-container-calendar">
               <button id="previous" onclick="previous()">‹</button>
@@ -201,7 +204,7 @@
               <tbody id="calendar-body"></tbody>
           </table>
 
-          <div class="footer-container-calendar">
+      <div class="footer-container-calendar">
               <label for="month">日付指定：</label>
               <select id="month" onchange="jump()">
                   <option value=0>1月</option>
@@ -219,10 +222,9 @@
               </select>
               <select id="year" onchange="jump()"></select>
           </div>
-    </div>
+    </div> 
+    --> 
 
-    <script src="js/calendar.js" type="text/javascript"></script>-->
-
-
+<script src="js/calender_sample.js"></script>
 </body>
 </html>

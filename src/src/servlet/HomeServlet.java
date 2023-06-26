@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CalenderDao;
-import model.Weight;
+import model.Calender;
 
 /**
  * Servlet implementation class HomeServlet
@@ -32,9 +32,9 @@ public class HomeServlet extends HttpServlet {
 		}*/
 		
 		CalenderDao cDao = new CalenderDao();
-		ArrayList<Weight> weightList = new ArrayList<>();
-		weightList = cDao.selectWeight(1);
-		request.setAttribute("weightList", weightList);
+		ArrayList<Calender> calenderList = new ArrayList<>();
+		calenderList = cDao.selectTrainings("health");
+		request.setAttribute("calenderList",calenderList);
 
 		
 		

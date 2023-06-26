@@ -22,11 +22,11 @@ public class Calender implements Serializable {
 		this.created_time = "";
 	}
 
-	public String getWeight() {
+	public String getParts() {
 		return parts;
 	}
 
-	public void setWeight(String parts) {
+	public void setParts(String parts) {
 		this.parts = parts;
 	}
 
@@ -45,6 +45,8 @@ public class Calender implements Serializable {
 	public void setCreated_time(String created_time) {
 		this.created_time = created_time;
 	}
+
+
 	
 	
 

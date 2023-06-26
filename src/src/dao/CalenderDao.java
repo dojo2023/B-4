@@ -9,15 +9,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.Calender;
-import model.Trainings;
-import model.Weight;
 
 
 public class CalenderDao {
 	// ログインできるならtrueを返す
-	public ArrayList<Weight> selectWeight(int user_id) {
+	public ArrayList<Calender> selectTrainings(String user_id) {
 		Connection conn = null;
-		ArrayList<Trainings> partsList = new ArrayList<>();
+		ArrayList<Calender> calenderList = new ArrayList<>();
 
 
 		try {
@@ -30,7 +28,7 @@ public class CalenderDao {
 			// SELECT文を準備する
 			String sql = "select parts_name,id,created_at from trainings where user_id = ?"; //?は後で書き換える
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1, user_id);
+			pStmt.setString(1, user_id);
 
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery(); //問い合わせ実行
@@ -39,23 +37,23 @@ public class CalenderDao {
 
 			while(rs.next()) {
 				Calender cp = new Calender();
-				cp.setWeight("parts_name");
+				cp.setParts(rs.getString("parts_name"));
 				String created_at = rs.getString("created_at");
 				String created_date = created_at.substring(0,10);
 				String created_time = created_at.substring(11,19);
 
 				cp.setCreated_date(created_date);
 				cp.setCreated_time(created_time);
-				partsList.add(cp);
+				calenderList.add(cp);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace(); //例外の内容をコンソールに表示
-			partsList=null;
+			calenderList=null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			partsList = null;
+			calenderList = null;
 		}
 		finally { //nullでなければ接続てきているということになるからログアウトできる
 			// データベースを切断
@@ -65,13 +63,13 @@ public class CalenderDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					partsList = null;
+					calenderList = null;
 				}
 			}
 		}
 
 		// 結果を返す IDPWが存在していたらtrueを返す
-		return partsList;
+		return calenderList;
 	}
 }
 
