@@ -176,10 +176,9 @@ public class UsersDAO {
 		return checkResult;
 	}
 
-//SELECT user_name FROM USERS  where user_id = 'health'
-	public String setUser_username(String id) {
+	public boolean isLoginOK(Users users) {
 		Connection conn = null;
-		String user_name="";
+		boolean loginResult = false;
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
@@ -187,44 +186,43 @@ public class UsersDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
 
-			// SQL文を準備する
-			String sql = "SELECT user_name FROM USERS  where user_id = ?";
+			// SELECT文を準備する
+			String sql = "select count(*) from USERS where USER_ID = ? and  USER_PASSWORD = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			// SQL文を完成させる
+			pStmt.setString(1, users.getUser_id());
+			pStmt.setString(2,users.getUser_password());
 
-			pStmt.setString(1,id);
-
-			// SQL文を実行し、結果表を取得する
+			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
-			// 結果表をコレクションにコピーする
+			// ユーザーIDとパスワードが一致するユーザーがいたかどうかをチェックする
 			rs.next();
-			if(rs.getString(user_name) !=null) {
-			user_name = rs.getString(user_name);
+			if (rs.getInt("count(*)") == 1) {
+				loginResult = true;
 			}
-
-
-
-		} catch (SQLException e) {
+		}
+		catch (SQLException e) {
 			e.printStackTrace();
-
-		} catch (ClassNotFoundException e) {
+			loginResult = false;
+		}
+		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-
-		} finally {
+			loginResult = false;
+		}
+		finally {
 			// データベースを切断
 			if (conn != null) {
 				try {
 					conn.close();
-				} catch (SQLException e) {
+				}
+				catch (SQLException e) {
 					e.printStackTrace();
-
+					loginResult = false;
 				}
 			}
 		}
 
 		// 結果を返す
-		return user_name;
+		return loginResult;
 	}
-
 }
