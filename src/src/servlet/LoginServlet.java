@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.LogindatasDAO;
-import model.Logindatas;
+import dao.UsersDAO;
+import model.LoginUser;
 import model.Result;
+import model.Users;
 
 /**
  * Servlet implementation class LoginServlet
@@ -34,33 +35,29 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String user_id = request.getParameter("ID");
-		String user_password = request.getParameter("PW");
+	// リクエストパラメータを取得する
+	request.setCharacterEncoding("UTF-8");
+	String user_id = request.getParameter("ID");
+	String user_password = request.getParameter("PW");
 
-		// ログイン処理を行う
-		LogindatasDAO iDao = new LogindatasDAO();
-		if (iDao.isLoginOK(new Logindatas(user_id,user_password))) {	// ログイン成功
-			// セッションスコープにIDを格納する
-			HttpSession session = request.getSession();
-			session.setAttribute("id", user_id);
+	// ログイン処理を行う
+	UsersDAO iDao = new UsersDAO();
+	if (iDao.isLoginOK(new Users(user_id, user_password))) {	// ログイン成功
+		// セッションスコープにIDを格納する
+		HttpSession session = request.getSession();
+		session.setAttribute("id", new LoginUser(user_id));
 
-			// ホームサーブレットにリダイレクトする
-			response.sendRedirect("/komatsukita/HomeServlet");
-		}
-		else {									// ログイン失敗
-			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("result",
-			new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/komatsukita/LoginServlet"));
+		// メニューサーブレットにリダイレクトする
+		response.sendRedirect("/komatsukita/HomeServlet");
+	}
+	else {									// ログイン失敗
+		// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+		request.setAttribute("result",
+		new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/komatsukita/LoginServlet"));
 
-			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-			dispatcher.forward(request, response);
-		}
-
-
-
-
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+		dispatcher.forward(request, response);
 	}
 }
+	}
