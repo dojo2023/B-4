@@ -108,8 +108,15 @@ CREATE TABLE trainings (
 );
 
 【trainingsテーブルにサンプルデータを登録するSQL文】〆
-insert into trainings (user_id, parts_name)
-values ('health', '腕');
+insert into trainings (user_id, parts_name) values ('health', '腕');
+新規★
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', '体力','2023-06-03','2023-06-03');
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', '脚','2023-05-22','2023-05-22');
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', '背中','2023-07-03','2023-07-03');
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', 'お腹','2023-07-23','2023-07-23');
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', '体力','2023-06-13','2023-06-13');
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', '脚','2023-05-17','2023-05-17');
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', 'お腹','2023-05-23','2023-05-23');
 
 
 【charasテーブルを作成するSQL文】〆
