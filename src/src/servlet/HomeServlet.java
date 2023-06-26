@@ -33,7 +33,7 @@ public class HomeServlet extends HttpServlet {
 		
 		CalenderDao cDao = new CalenderDao();
 		ArrayList<Calender> calenderList = new ArrayList<>();
-		calenderList = cDao.selectTrainings("user_id");
+		calenderList = cDao.selectTrainings("a");
 		request.setAttribute("calenderList",calenderList);
 
 		

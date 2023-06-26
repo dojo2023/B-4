@@ -117,6 +117,7 @@ insert into trainings (user_id, parts_name,created_at, updated_at) values ('heal
 insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', '体力','2023-06-13','2023-06-13');
 insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', '脚','2023-05-17','2023-05-17');
 insert into trainings (user_id, parts_name,created_at, updated_at) values ('health', 'お腹','2023-05-23','2023-05-23');
+insert into trainings (user_id, parts_name,created_at, updated_at) values ('a', '体力','2023-06-13','2023-06-13');
 
 
 【charasテーブルを作成するSQL文】〆

@@ -104,7 +104,7 @@ public class TraincheckServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			String id = (String)session.getAttribute("id");
-			
+//			String id ="a";
 	    	// 登録処理を行う
 			TrainingDao tDao = new TrainingDao();
 			if (tDao.insert(id,parts)) {	// 登録成功
