@@ -155,7 +155,7 @@
     </p>
 </div>
 </div>
-<img src="/komatsukita/img/shell.png" width="260" height="100" alt="女の子">
+<img src="/komatsukita/img/shell.png" width="260" height="250" alt="女の子">
 <script>
 function viewChange() {
     var id = document.getElementById('sample').value;
