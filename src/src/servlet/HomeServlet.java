@@ -30,6 +30,13 @@ public class HomeServlet extends HttpServlet {
 			response.sendRedirect("/komatsukita/LoginServlet");
 			return;
 		}*/
+//		HttpSession session = request.getSession();
+//		//自分のidを読み込む。本来はセッションスコープ等から取り出すが今回は変数で固定している
+//		LoginUser user_id_login = (LoginUser)session.getAttribute("id");
+//		String my_id = user_id_login.getUser_id();
+//		//String my_id = "B";
+////
+//		String user_id = (String)session.getAttribute("user_id");
 		
 		CalenderDao cDao = new CalenderDao();
 		ArrayList<Calender> calenderList = new ArrayList<>();

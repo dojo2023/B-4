@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,11 +37,22 @@ public class FriendlistServlet extends HttpServlet {
 		String friends_id = request.getParameter("FRIENDS_ID");
 		String user_name = request.getParameter("USER_NAME");
 		
-		
-		
-		//daoを操作する
+		//Daoのインスタンスを作成　
 		FriendListDao fDao = new FriendListDao();
-		List<Friends> FriendList = fDao.select(new Friends());
+		
+		//FriendListを作成　データベースから取得したデータを入れる
+		ArrayList<Friends> FriendList = new ArrayList<>();
+		
+		//("")のキーワードに基づいてデータベースから情報を抜き出す
+		FriendList = fDao.selectModal_users_friends("health");
+		
+		//FriendListをオブジェクトの属性として設定
+		request.setAttribute("FriendList",FriendList);
+		
+		
+//		//daoを操作する
+//		FriendListDao fDao = new FriendListDao();
+//		List<Friends> FriendList = fDao.select(new Friends());
 		
 		
 		request.setAttribute("FriendList", FriendList);
