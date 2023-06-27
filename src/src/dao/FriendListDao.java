@@ -5,12 +5,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class ModalDAO2 {
+import model.Calender;
+
+public class FriendListDao {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public String selectId(String user_id) {
 		Connection conn = null;
 		String user_name = "";
+		
+	public ArrayList<FriendList> selectFriendlist(String user_id, String friend_id, String user_name) {
+		Connection conn = null;
+		ArrayList<FriendList> FriendList = new ArrayList<>();
 
 		try {
 			// JDBCドライバを読み込む
