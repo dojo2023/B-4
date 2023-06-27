@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.FriendsDao;
+import model.Friends;
 
 
 
@@ -36,6 +40,19 @@ public class FriendlistServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
+		//リクエストパラメータ（user_id）を取得する
+		request.setCharacterEncoding("UTF-8");
+		String user_id = request.getParameter("USER_ID");
+		String id = request.getParameter("ID");
+		String friends_id = request.getParameter("FRIENDS_ID");
+		
+		//daoを操作する
+		FriendsDao fDao = new FriendsDao();
+		List<Friends> FriendList = fDao.select(new Friends(id, user_id, friends_id));
+		
+		
+		request.setAttribute("FriendList", FriendList);
+		
 		// フレンドリストページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/friendlist.jsp");
 				dispatcher.forward(request, response);
@@ -53,10 +70,10 @@ public class FriendlistServlet extends HttpServlet {
 			}*/
 
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("ID");
-		String user_id = request.getParameter("USER_ID");
-		String friends_id = request.getParameter("FRIENDS_ID");
+//		request.setCharacterEncoding("UTF-8");
+//		String id = request.getParameter("ID");
+//		String user_id = request.getParameter("USER_ID");
+//		String friends_id = request.getParameter("FRIENDS_ID");
 
 //		FriendsDAO fDao = new FriendsDAO();
 //		List<Friends> cardList = fDao.select(new Friends(id, user_id, friends_id));

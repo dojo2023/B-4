@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.TrainingDao;
+import model.LoginUser;
 import model.Result;
 
 /**
@@ -103,9 +104,11 @@ public class TraincheckServlet extends HttpServlet {
 			//セッションスコープからIDを取得する
 			
 			HttpSession session = request.getSession();
-			String id = (String)session.getAttribute("id");
+			LoginUser id_login = (LoginUser)session.getAttribute("id");
+			String id = id_login.getUser_id();
 //			String id ="a";
 	    	// 登録処理を行う
+			System.out.println("id:"+id);
 			TrainingDao tDao = new TrainingDao();
 			if (tDao.insert(id,parts)) {	// 登録成功
 				request.setAttribute("result",
