@@ -4,6 +4,14 @@
   margin: 15px auto;
   max-width: 700px;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .container-calendar {
   background: #ffffff;
   padding: 15px;
@@ -63,7 +71,6 @@ color: blue;
 }
 #next {
   float: right;
-  margin-right: 15px;
 }
 .footer-container-calendar {
   margin-top: 1em;

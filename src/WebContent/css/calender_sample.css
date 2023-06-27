@@ -79,7 +79,7 @@ calendar {
 
 /* カレンダーセクション */
 section {
-	
+
   margin: 10px;
   background-color: #ffe1e7;
   border-radius: 10px;
@@ -88,7 +88,7 @@ section {
 
 /* カレンダーヘッダー */
 h1 {
-  font-size: 24px;
+  font-size:24px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
@@ -97,7 +97,7 @@ h1 {
 /* カレンダーテーブル */
 table {
   width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 /* カレンダーテーブルヘッダー */
@@ -221,4 +221,3 @@ color: blue;
   border-radius: 3px;
   padding: 5px 1em;
 }
-*/
