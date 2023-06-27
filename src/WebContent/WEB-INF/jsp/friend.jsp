@@ -61,6 +61,7 @@
         <!--  <li class="accordion-menu__item">
             <a href="">ランキング</a>
         </li> -->
+
         <li class="accordion-menu__item">
             <a href="/komatsukita/FriendServlet">友達追加</a>
         </li>
@@ -84,13 +85,43 @@
             });
         });
     </script>
-	<span class = "frmain">
+
+    <img src="/komatsukita/img/komatsu12.png" width="250" height="180" alt="女の子">
+    <h1>ともだち</h1>
+    <!-- 検索前 -->
+	<c:if test="${empty user_name}">
+
+	<form method="POST" action="/komatsukita/FriendmodalreiServlet">
+		id<input type="text" name="user_id"><br> <input
+			type="submit" name="submit" value="検索"><br>
+
+	</form>
+
+	</c:if>
+
+	<!-- 検索結果がある時 -->
+	<c:if test="${!empty user_name}">
+		<script>
+			const ans = window.confirm("${user_name}さんでよろしいですか？");
+
+			if(ans == true){
+				 location.href = "/komatsukita/FriendinsertreiServlet"
+			}else{
+				location.href = "/komatsukita/FriendmodalreiServlet"
+			}
+
+		</script>
+
+	</c:if>
+</body>
+</html>
+
+<!-- <span class = "frmain">
     <img src="/komatsukita/img/komatsu12.png" width="250" height="180" alt="女の子">
     <h1>ともだち</h1>
     <form action="friendRegistration.jsp" method="get" id="searchForm">
         <input type="search" name="search" placeholder="IDをにゅうりょくする" id="searchInput">
        <input type="image" src="/komatsukita/img/search.png" width="30" height="30" alt="検索" value="検索する">
-   <input type="submit value="検索する"">
     </form>
 
 
@@ -111,7 +142,7 @@
 		    }
             // 仮に一致するIDがあるとする
           <!--  var foundFriend = true; -->
-
+<!--
             if (xhr.responseText == "true") {
                 // サブウィンドウを開く
                 var confirmWindow = window.open("", "confirmWindow", "width=400,height=200");
@@ -142,6 +173,5 @@
             window.close(); // サブウィンドウを閉じる
         }
     </script>
-    </span>
-</body>
-</html>
+
+    </span> -->
