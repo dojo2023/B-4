@@ -41,7 +41,9 @@ public class GameServlet extends HttpServlet {
 		//SELECT ch.chara_file  FROM userCharas  as uc  join charas as ch on uc.chara_id = ch.chara_id where  uc.user_id = 'health' ;
 		CharaDao cDao = new CharaDao();
 		Serifus sf = cDao.select(user_id);
+		int chara_id = Integer.parseInt(cDao.selectId(user_id));
 
+		request.setAttribute("chara_id", chara_id);
 		//取ってきたファイル名をリクエストスコープに格納する
 		request.setAttribute("serif_chara", sf);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/game.jsp");
@@ -55,12 +57,13 @@ public class GameServlet extends HttpServlet {
 
 
     request.setCharacterEncoding("UTF-8");
-    String points = request.getParameter("POINTS");
-    String chara_file = request.getParameter("CHARA_FILE");
-    String serif = request.getParameter("SERIF");
+    String user_id = "health";
+    String chara_id = request.getParameter("chara_id");
+    //daoを使ってusercharaidテーブルのデータを上書きする
+    //update userscharas set chara_id  = うえの変数chara_id where user_id = "health"
 
-    CharaDao cDao = new CharaDao();
-    String a = cDao.select("health");
-    System.out.println(a);
+    doGet(request,response);
+
+
 	}
 }

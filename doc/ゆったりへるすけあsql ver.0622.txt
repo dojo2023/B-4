@@ -209,16 +209,16 @@ CREATE TABLE usercharas (
 
 【usercharasテーブルにサンプルデータを登録するSQL文】〆
 INSERT INTO usercharas (user_id, chara_id)
-VALUES ('health', 'A001');
+VALUES ('health', '0');
 
 INSERT INTO usercharas (user_id, chara_id)
-VALUES ('sleep', 'A001');
+VALUES ('sleep', '0');
 
 INSERT INTO usercharas (user_id, chara_id)
-VALUES ('mascle', 'A001');
+VALUES ('mascle', '0');
 
 INSERT INTO usercharas (user_id, chara_id)
-VALUES ('smile', 'A001');
+VALUES ('smile', '0');
 
 INSERT INTO usercharas (user_id, chara_id)
-VALUES ('mario', 'A001');
+VALUES ('mario', '0');

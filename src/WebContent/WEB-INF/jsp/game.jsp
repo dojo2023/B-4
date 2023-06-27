@@ -86,7 +86,7 @@
     </script>
 <div class = main>
 <h1><img src="img/yanderelogo.png" alt=""></h1>
-
+<!-- <form method="POST" action="GameServlet"> -->
 <!-- リクエストスコープに入っているファイル名をここに貼り付ける -->
 <img id="serifu" src="img/${serif_chara.serif}" alt ="" width="180" height="300">
 <!-- リクエストスコープに入っているファイル名をここに貼り付ける -->
@@ -94,7 +94,9 @@
 <br>
 <br>
 <br>
+
 <button onclick="slideshow()">パワー！！！</button>
+<!-- </form> -->
 <p>1日1回のログインで<br>
 1ポイントもらえるぞ
 </p>
@@ -107,28 +109,41 @@
 ボタンを一回押して女の子に元気を送ろう
 </p>
 <br>
-
+<input type="hidden"  id="chara_id_data" value="${chara_id}">
+<input type="hidden" name="chara_id" id="chara_id_now" value="">
 <p>残りポイントは<br>7pt</p>
 Copyright © 2023 komatsukita All Right Reserved.
 </div>
+
+
+
 <script src="game"></script>
 <script>
 var images_src = new Array("img/yandere1.png", "img/yandere2.png", "img/yandere2.png", "img/yandere3.png", "img/yandere3.png", "img/yandere4.png", "img/yandere5.png");
 var serifus = new Array("img/serifu1.png", "img/serifu2.png", "img/serifu3.png", "img/serifu4.png", "img/serifu5.png", "img/serifu6.png"
 , "img/serifu7.png");
-var currentIndex = 0;
+let chara_id = document.getElementById("chara_id_data").value;
 
+function loadimage(event){
+	document.getElementById("mypic").src = images_src[chara_id];
+    document.getElementById("serifu").src = serifus[chara_id];
+};
+document.addEventListener("DOMContentLoaded",loadimage);
 
 function slideshow() {
-    document.getElementById("mypic").src = images_src[currentIndex];
-    document.getElementById("serifu").src = serifus[currentIndex];
+    document.getElementById("mypic").src = images_src[chara_id];
+    document.getElementById("serifu").src = serifus[chara_id];
 
-    currentIndex++;
-    if (currentIndex >= images_src.length) {
-        currentIndex = 0;
+    chara_id++;
+    document.getElementById("chara_id_now").value = chara_id;
+    if (chara_id >= images_src.length) {
+    	chara_id = 0;
     }
+    //サーブレットGameServletのpostメソッドを呼び出す
+
 }
 
 </script>
+
 </body>
 </html>
