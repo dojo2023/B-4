@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.FriendsDao;
+import dao.FriendListDao;
 import model.Friends;
 
 
@@ -22,17 +22,7 @@ import model.Friends;
 public class FriendlistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FriendlistServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		/*HttpSession session = request.getSession();
@@ -45,10 +35,13 @@ public class FriendlistServlet extends HttpServlet {
 		String user_id = request.getParameter("USER_ID");
 		String id = request.getParameter("ID");
 		String friends_id = request.getParameter("FRIENDS_ID");
+		String user_name = request.getParameter("USER_NAME");
+		
+		
 		
 		//daoを操作する
-		FriendsDao fDao = new FriendsDao();
-		List<Friends> FriendList = fDao.select(new Friends(id, user_id, friends_id));
+		FriendListDao fDao = new FriendListDao();
+		List<Friends> FriendList = fDao.select(new Friends());
 		
 		
 		request.setAttribute("FriendList", FriendList);
