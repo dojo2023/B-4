@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ModalDAO2;
+import dao.FriendListDao;
 
 
 /**
@@ -53,7 +53,7 @@ public class FriendmodalreiServlet extends HttpServlet {
 
 
 		// id検索を行う
-		ModalDAO2 mDao = new ModalDAO2();
+		FriendListDao mDao = new FriendListDao();
 		String user_name = mDao.selectId(user_id);
 		if (!user_name.equals("")) {	// id発見。
 

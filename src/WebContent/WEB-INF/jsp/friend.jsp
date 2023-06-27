@@ -92,8 +92,10 @@
 	<c:if test="${empty user_name}">
 
 	<form method="POST" action="/komatsukita/FriendmodalreiServlet">
-		id<input type="text" name="user_id"><br> <input
-			type="submit" name="submit" value="検索"><br>
+		id<input type="text" name="user_id"><br>
+	<!-- 	<input
+			type="submit" name="submit" value="検索"><br> -->
+			 <input type="image" src="/komatsukita/img/search.png" width="30" height="30" alt="検索" value="検索する">
 
 	</form>
 

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ModalDAO2;
+import dao.FriendListDao;
 import model.LoginUser;
 
 /**
@@ -40,9 +40,12 @@ public class FriendinsertreiServlet extends HttpServlet {
 //
 		String user_id = (String)session.getAttribute("user_id");
 
-		ModalDAO2 mDao = new ModalDAO2();
+		FriendListDao mDao = new FriendListDao();
 		//自分のidとfriendのidを渡してテーブルに挿入
 		mDao.insertFriend(my_id,user_id);
+
+//FriendmodalreiServletにredirectする処理を書く
+		response.sendRedirect("/komatsukita/FriendmodalreiServlet");
 
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/friendlist.jsp");
 //		dispatcher.forward(request, response);
