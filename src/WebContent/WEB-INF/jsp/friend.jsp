@@ -72,6 +72,7 @@
             <a href="/komatsukita/LoginServlet">ログアウト</a>
         </li>
     </ul>
+    <div style="text-align: center;">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -92,7 +93,7 @@
 	<c:if test="${empty user_name}">
 
 	<form method="POST" action="/komatsukita/FriendmodalreiServlet">
-		id<input type="text" name="user_id"><br>
+		<input type="text" name="user_id"placeholder="IDをにゅうりょくする">
 	<!-- 	<input
 			type="submit" name="submit" value="検索"><br> -->
 			 <input type="image" src="/komatsukita/img/search.png" width="30" height="30" alt="検索" value="検索する">
@@ -115,6 +116,7 @@
 		</script>
 
 	</c:if>
+	</div>
 </body>
 </html>
 
