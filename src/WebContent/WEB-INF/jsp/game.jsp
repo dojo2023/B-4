@@ -88,13 +88,13 @@
 <h1><img src="img/yanderelogo.png" alt=""></h1>
 
 <!-- リクエストスコープに入っているファイル名をここに貼り付ける -->
-<img src="img/${serif_chara.serif}" alt ="" width="180" height="300">
+<img id="serifu" src="img/${serif_chara.serif}" alt ="" width="180" height="300">
 <!-- リクエストスコープに入っているファイル名をここに貼り付ける -->
-<img src="img/${serif_chara.chara_file}" alt ="" width="300" height="350">
+<img id="mypic" src="img/${serif_chara.chara_file}" alt ="" width="300" height="350">
 <br>
 <br>
 <br>
-<img id ="button_img" src="/komatsukita/img/powerbottom.png" alt ="" width="190" height="200">
+<button onclick="slideshow()">パワー！！！</button>
 <p>1日1回のログインで<br>
 1ポイントもらえるぞ
 </p>
@@ -112,5 +112,23 @@
 Copyright © 2023 komatsukita All Right Reserved.
 </div>
 <script src="game"></script>
+<script>
+var images_src = new Array("img/yandere1.png", "img/yandere2.png", "img/yandere2.png", "img/yandere3.png", "img/yandere3.png", "img/yandere4.png", "img/yandere5.png");
+var serifus = new Array("img/serifu1.png", "img/serifu2.png", "img/serifu3.png", "img/serifu4.png", "img/serifu5.png", "img/serifu6.png"
+, "img/serifu7.png");
+var currentIndex = 0;
+
+
+function slideshow() {
+    document.getElementById("mypic").src = images_src[currentIndex];
+    document.getElementById("serifu").src = serifus[currentIndex];
+
+    currentIndex++;
+    if (currentIndex >= images_src.length) {
+        currentIndex = 0;
+    }
+}
+
+</script>
 </body>
 </html>
