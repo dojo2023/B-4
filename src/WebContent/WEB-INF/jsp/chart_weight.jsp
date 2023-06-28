@@ -89,12 +89,6 @@
 <h1>たいじゅうかんり</h1>
 <hr>
 
-<input type="submit" name="TERM" value="一週間" class="button">
-<input type="submit" name="TERM" value="１か月" class="button">
-<input type="submit" name="TERM" value="３か月" class="button">
-<input type="submit" name="TERM" value="半年" class="button">
-
-
 	<c:if test="${empty weights}">
 		<p>一致するデータはありません</p>
 	</c:if>
