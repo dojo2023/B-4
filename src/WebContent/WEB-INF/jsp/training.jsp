@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
 <style>
-	h1 {
-        color: #008CAF;
-        font-size: 36px;
-        margin-bottom: 20px;
-        text-align: center;
-    }
 
     .container {
         display: flex;
@@ -116,7 +110,10 @@
             });
         });
     </script>
-<h1>トレーニングをえらんでね</h1>
+<div style="text-align: center;">
+
+<img src="img/eranndene.png" width="310" height="100"><br>
+</div>
 <div class="container">
     <div class="option">
         <a href="/komatsukita/HometrainServlet">家庭用トレーニング</a>

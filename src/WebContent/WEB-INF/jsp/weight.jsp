@@ -85,7 +85,10 @@
             });
         });
     </script>
-<h1>たいじゅうかんり</h1>
+
+<div style="text-align: left;">
+<img src="img/kannri.png" width="100" height="50">
+</div>
 <hr>
 
 <input type="submit" name="TERM" value="一週間" class="button">

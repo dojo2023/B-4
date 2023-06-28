@@ -83,7 +83,10 @@
         });
     </script>
 
-<h1>栄養管理</h1>
+<div style="text-align: left;">
+
+<img src="img/eiyoukannri.png" width="200" height="50"><br>
+</div>
 <br>
 
 <div class="muri center">

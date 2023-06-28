@@ -87,8 +87,11 @@
         });
     </script>
 
-    <img src="/komatsukita/img/komatsu12.png" width="250" height="180" alt="女の子">
-    <h1>ともだち</h1>
+
+<div style="text-align: center;">
+<img src="/komatsukita/img/komatsu12.png" width="250" height="180"><br>
+<img src="img/tomodati.png" width="200" height="60">
+</div>
     <!-- 検索前 -->
 	<c:if test="${empty user_name}">
 
