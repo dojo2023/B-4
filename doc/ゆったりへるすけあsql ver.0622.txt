@@ -210,7 +210,7 @@ CREATE TABLE usercharas (
   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-【usercharasテーブルにサンプルデータを登録するSQL文】〆
+【usercharasテーブルにサンプルデータを登録するSQL文】〆更新箇所
 INSERT INTO usercharas (user_id, chara_id)
 VALUES ('health', '0');
 
