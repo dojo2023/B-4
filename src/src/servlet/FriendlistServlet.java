@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.FriendListDao;
 import model.Friends;
+import model.LoginUser;
 
 
 
@@ -30,10 +32,14 @@ public class FriendlistServlet extends HttpServlet {
 				response.sendRedirect("/komatsukita/LoginServlet");
 				return;
 			}*/
+		
+		//セッションスコープに格納されているIDを取得する
+		HttpSession session = request.getSession();
+        LoginUser id = (LoginUser) session.getAttribute("user_id");
+		
 		//リクエストパラメータ（user_id）を取得する
 		request.setCharacterEncoding("UTF-8");
 		String user_id = request.getParameter("USER_ID");
-		String id = request.getParameter("ID");
 		String friends_id = request.getParameter("FRIENDS_ID");
 		String user_name = request.getParameter("USER_NAME");
 		
@@ -44,7 +50,7 @@ public class FriendlistServlet extends HttpServlet {
 		ArrayList<Friends> FriendList = new ArrayList<>();
 		
 		//("")のキーワードに基づいてデータベースから情報を抜き出す
-		FriendList = fDao.selectModal_users_friends("health");
+		FriendList = fDao.selectModal_users_friends("id");
 		
 		//FriendListをオブジェクトの属性として設定
 		request.setAttribute("FriendList",FriendList);

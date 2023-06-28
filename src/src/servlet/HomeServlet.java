@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CalenderDao;
 import model.Calender;
+import model.LoginUser;
 
 /**
  * Servlet implementation class HomeServlet
@@ -35,12 +37,16 @@ public class HomeServlet extends HttpServlet {
 //		LoginUser user_id_login = (LoginUser)session.getAttribute("id");
 //		String my_id = user_id_login.getUser_id();
 //		//String my_id = "B";
+		
+		//セッションスコープに格納されているIDを取得する
+		HttpSession session = request.getSession();
+        LoginUser id = (LoginUser) session.getAttribute("user_id");
 ////
 //		String user_id = (String)session.getAttribute("user_id");
 		
 		CalenderDao cDao = new CalenderDao();
 		ArrayList<Calender> calenderList = new ArrayList<>();
-		calenderList = cDao.selectTrainings("health");
+		calenderList = cDao.selectTrainings("id");
 		request.setAttribute("calenderList",calenderList);
 
 		

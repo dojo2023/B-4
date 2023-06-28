@@ -3,6 +3,7 @@
  */
 'use strict';
 
+
 const weeks = ['日', '月', '火', '水', '木', '金', '土']
 const date = new Date()
 let year = date.getFullYear()
@@ -138,6 +139,26 @@ document.addEventListener("click", function(e) {
 		var selected_year = OnclickDate.getFullYear();
 		var selected_month = OnclickDate.getMonth() + 1;
 		var selected_day = OnclickDate.getDate();
+		
+		
+		 if (OnclickDate > date) {
+      const confirmation = confirm("未来" + selected_year + "年" + selected_month + "月" + selected_day + "日に予定を保存しますか？");
+      if (confirmation) {
+        const schedule = prompt("予定を入力してください:");
+        if (schedule) {
+          // ここで予定を保存する処理を実行する
+          // 例: saveSchedule(selected_year, selected_month, selected_day, schedule);
+          alert("予定が保存されました");
+        }
+      }
+    } else {
+      alert("過去" + selected_year + "年" + selected_month + "月" + selected_day + "日");
+    }
+		
+	
+
+	
+    
 		// 過去か未来かで分岐処理
 		if (OnclickDate > date) {
 			alert("未来" + selected_year + "年" + selected_month + "月" + selected_day + "日");
@@ -146,6 +167,40 @@ document.addEventListener("click", function(e) {
 		}
 	}
 })
+
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("calendar_td")) {
+    // ...
+
+    var popup = document.getElementById("popup");
+    // ...
+
+    // ポップアップを表示する処理
+    popup.style.display = "block";
+
+    // 予定の入力フォームと保存ボタンの要素を取得
+    var scheduleForm = document.getElementById("schedule-form");
+    var scheduleInput = document.getElementById("schedule-input");
+
+    // 予定の入力フォームの送信イベントを監視
+    scheduleForm.addEventListener("submit", function(event) {
+      event.preventDefault(); // フォームのデフォルトの送信を防止
+
+      var schedule = scheduleInput.value; // 予定の入力内容を取得
+
+      // 予定を保存する関数を呼び出し、必要な処理を実装
+      saveSchedule(selected_year, selected_month, selected_day, schedule);
+
+      popup.style.display = "none"; // ポップアップを非表示にする
+    });
+  }
+});
+
+function saveSchedule(year, month, day, schedule) {
+  console.log(`保存された予定: ${year}/${month}/${day} - ${schedule}`);
+  // ここに実際の予定の保存処理を追加する
+}
+
 
 showCalendar(year, month);
 
@@ -197,109 +252,4 @@ function parts_name_insert() {
 }
 
 
-/*
 
-function generate_year_range(start, end) {
-    var years = "";
-    for (var year = start; year <= end; year++) {
-        years += "<option value='" + year + "'>" + year + "</option>";
-    }
-    return years;
-  }
-  
-  var today = new Date();
-  var currentMonth = today.getMonth();
-  var currentYear = today.getFullYear();
-  var selectYear = document.getElementById("year");
-  var selectMonth = document.getElementById("month");
-  
-  var createYear = generate_year_range(1970, 2200);
-  
-  document.getElementById("year").innerHTML = createYear;
-  
-  var calendar = document.getElementById("calendar");
-  var lang = calendar.getAttribute('data-lang');
-  
-  var months = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-  var days = ["日", "月", "火", "水", "木", "金", "土"];
-  
-  var dayHeader = "<tr>";
-  for (day in days) {
-    dayHeader += "<th data-days='" + days[day] + "'>" + days[day] + "</th>";
-  }
-  dayHeader += "</tr>";
-  
-  document.getElementById("thead-month").innerHTML = dayHeader;
-  
-  monthAndYear = document.getElementById("monthAndYear");
-  showCalendar(currentMonth, currentYear);
-  
-  function next() {
-    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-    currentMonth = (currentMonth + 1) % 12;
-    showCalendar(currentMonth, currentYear);
-  }
-  
-  function previous() {
-    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
-  }
-  
-  function jump() {
-    currentYear = parseInt(selectYear.value);
-    currentMonth = parseInt(selectMonth.value);
-    showCalendar(currentMonth, currentYear);
-  }
-  
-  function showCalendar(month, year) {
-  
-    var firstDay = ( new Date( year, month ) ).getDay();
-  
-    tbl = document.getElementById("calendar-body");
-  
-    tbl.innerHTML = "";
-  
-    monthAndYear.innerHTML = months[month] + " " + year;
-    selectYear.value = year;
-    selectMonth.value = month;
-  
-    // creating all cells
-    var date = 1;
-    for ( var i = 0; i < 6; i++ ) {
-        var row = document.createElement("tr");
-  
-        for ( var j = 0; j < 7; j++ ) {
-            if ( i === 0 && j < firstDay ) {
-                cell = document.createElement( "td" );
-                cellText = document.createTextNode("");
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-            } else if (date > daysInMonth(month, year)) {
-                break;
-            } else {
-                cell = document.createElement("td");
-                cell.setAttribute("data-date", date);
-                cell.setAttribute("data-month", month + 1);
-                cell.setAttribute("data-year", year);
-                cell.setAttribute("data-month_name", months[month]);
-                cell.className = "date-picker";
-                cell.innerHTML = "<span>" + date + "</span>";
-  
-                if ( date === today.getDate() && year === today.getFullYear() && month === today.getMonth() ) {
-                    cell.className = "date-picker selected";
-                }
-                row.appendChild(cell);
-                date++;
-            }
-        }
-  
-        tbl.appendChild(row);
-    }
-  
-  }
-  
-  function daysInMonth(iMonth, iYear) {
-    return 32 - new Date(iYear, iMonth, 32).getDate();
-  }
-*/
