@@ -14,7 +14,7 @@ import model.Weight;
 
 public class ChartDAO {
 	// user_idの体重データを取得
-		public ArrayList<Weight> select(int user_id) {
+		public ArrayList<Weight> select(String user_id) {
 			Connection conn = null;
 			ArrayList<Weight> cardList = new ArrayList<Weight>();
 
@@ -31,7 +31,7 @@ public class ChartDAO {
 
 				// SQL文を完成させる
 
-					pStmt.setInt(1,user_id);
+					pStmt.setString(1,user_id);
 
 
 				// SQL文を実行し、結果表を取得する
@@ -41,7 +41,7 @@ public class ChartDAO {
 				while (rs.next()) {
 
 					Weight card = new Weight();
-					card.setUser_id(rs.getInt("user_id"));
+					card.setUser_id(rs.getString("user_id"));
 					card.setWeight(rs.getInt("weight"));
 					card.setDate(rs.getString("day"));
 
@@ -74,7 +74,7 @@ public class ChartDAO {
 		}
 
 		//もっとも新しい目標体重を取得
-		public ArrayList<Target> select_target(int user_id) {
+		public ArrayList<Target> select_target(String user_id) {
 			Connection conn = null;
 			ArrayList<Target> cardList = new ArrayList<Target>();
 
@@ -91,7 +91,7 @@ public class ChartDAO {
 
 				// SQL文を完成させる
 
-					pStmt.setInt(1,user_id);
+					pStmt.setString(1,user_id);
 
 
 				// SQL文を実行し、結果表を取得する
@@ -101,7 +101,7 @@ public class ChartDAO {
 				while (rs.next()) {
 
 					Target card = new Target();
-					card.setUser_id(rs.getInt("user_id"));
+					card.setUser_id(rs.getString("user_id"));
 					card.setTarget(rs.getInt("target"));
 					card.setDate(rs.getString("day"));
 

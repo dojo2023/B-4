@@ -4,21 +4,21 @@ import java.io.Serializable;
 
 
 public class Target implements Serializable {
-	private int user_id;
+	private String user_id;
 	private int target;
 	private String date;
 
 	public Target() {
-		this.user_id = 0;
+		this.user_id = "";
 		this.target = 0;
 		this.date = "";
 	}
 
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 

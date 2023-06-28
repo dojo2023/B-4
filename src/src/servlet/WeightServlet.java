@@ -28,16 +28,24 @@ public class WeightServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		//users_weightテーブルからuser_id(今回は「１」に固定）のuser_id,体重のリスト,作成日を取得。
+		//セッションスコープからIDを取得する
+
+		HttpSession session = request.getSession();
+		LoginUser id_login = (LoginUser)session.getAttribute("id");
+		String user_id = id_login.getUser_id();
+
 		ChartDAO cDao = new ChartDAO();
 
 		ArrayList<Weight> Weights = new ArrayList<>();
-		Weights = cDao.select(1);
+		Weights = cDao.select(user_id);
 		request.setAttribute("weights", Weights);
 		//users_targetsテーブルからuser_id(今回は「１」に固定）のuser_id,目標体重,作成日を取得。
 		ArrayList<Target> Targets = new ArrayList<>();
-		Targets = cDao.select_target(1);
+
+
+
+		Targets = cDao.select_target(user_id);
 		request.setAttribute("target", Targets);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chart_weight.jsp");
@@ -48,7 +56,7 @@ public class WeightServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+
 
 
     	// リクエストパラメータを取得する

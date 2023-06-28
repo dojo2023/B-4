@@ -100,8 +100,10 @@
 	<div class="chart-container">
 		<canvas id="Chart"></canvas>
 	理想体重<input type="text" name="DREAMWEIGHTS" value="${target[0].target}"><br>
+	<form method="post" action="/komatsukita/WeightServlet">
 	今日の体重<input type="text" name="REALWEIGHTS"><br>
 	<input type="submit" name="REGIST" value="登録" class="button"><br>
+	</form>
 	</div>
 
 	<!--目標体重  -->
