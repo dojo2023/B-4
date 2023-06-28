@@ -112,7 +112,14 @@ public class FriendListDao {
 		// 結果を返す
 		return result;
 	}
-	public ArrayList<Friends> selectModal_Users_Friendss (String user_id, String friend_id, String user_name, ArrayList<Friends> frinedList) {
+	
+
+	public List<Friends> select(Friends friends) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	public ArrayList<Friends> selectModal_users_friends(String user_id) {
+		// TODO 自動生成されたメソッド・スタブ
 		Connection conn = null;
 		ArrayList<Friends> FriendList = new ArrayList<>();
 
@@ -124,14 +131,13 @@ public class FriendListDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select user_name, user_id, friend_id from modal_users_friends join users on friends.user_id = ?";
+			String sql = "select f.user_id,f.friend_id,u.user_name from modal_users_friends as f join users as u on u.user_id = f.friend_id where f.user_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
 
-				pStmt.setString(1, user_name);
-				pStmt.setString(2, user_id);
-				pStmt.setString(3, friend_id);
+				pStmt.setString(1, user_id);
+
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -144,7 +150,7 @@ public class FriendListDao {
 				rs.getString("FRIEND_ID")
 				);
 				
-				frinedList.add(card);
+				FriendList.add(card);
 			}
 		}
 		catch (SQLException e) {
@@ -170,14 +176,5 @@ public class FriendListDao {
 
 		// 結果を返す
 		return FriendList;
-	}
-
-	public List<Friends> select(Friends friends) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-	public ArrayList<Friends> selectModal_users_friends(String string) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
 	}
 }

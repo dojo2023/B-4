@@ -4,20 +4,20 @@ import java.io.Serializable;
 
 public class Friends implements Serializable {
 	private String user_id;
-	private String id;
+	private String name;
 	private String friends_id;
 
-	public Friends(String user_id, String id, String friends_id) {
+	public Friends(String user_id, String name, String friends_id) {
 		super();
 		this.user_id = user_id;
-		this.id = id;
+		this.name = name;
 		this.friends_id = friends_id;
 	}
 
 	public Friends () {
 		super();
 		this.user_id = "";
-		this.id = "";
+		this.name = "";
 		this.friends_id = "";
 	}
 
@@ -27,11 +27,11 @@ public class Friends implements Serializable {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getFriends_id() {
 		return friends_id;

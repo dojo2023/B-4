@@ -35,11 +35,12 @@ public class FriendlistServlet extends HttpServlet {
 		
 		//セッションスコープに格納されているIDを取得する
 		HttpSession session = request.getSession();
-        LoginUser id = (LoginUser) session.getAttribute("user_id");
+		LoginUser id_login = (LoginUser) session.getAttribute("id");
+		String id=id_login.getUser_id();
 		
 		//リクエストパラメータ（user_id）を取得する
 		request.setCharacterEncoding("UTF-8");
-		String user_id = request.getParameter("USER_ID");
+	//	String user_id = request.getParameter("USER_ID");
 		String friends_id = request.getParameter("FRIENDS_ID");
 		String user_name = request.getParameter("USER_NAME");
 		
@@ -50,7 +51,7 @@ public class FriendlistServlet extends HttpServlet {
 		ArrayList<Friends> FriendList = new ArrayList<>();
 		
 		//("")のキーワードに基づいてデータベースから情報を抜き出す
-		FriendList = fDao.selectModal_users_friends("id");
+		FriendList = fDao.selectModal_users_friends(id);
 		
 		//FriendListをオブジェクトの属性として設定
 		request.setAttribute("FriendList",FriendList);
@@ -61,7 +62,7 @@ public class FriendlistServlet extends HttpServlet {
 //		List<Friends> FriendList = fDao.select(new Friends());
 		
 		
-		request.setAttribute("FriendList", FriendList);
+	//	request.setAttribute("FriendList", FriendList);
 		
 		// フレンドリストページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/friendlist.jsp");

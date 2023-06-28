@@ -75,6 +75,18 @@
     </ul>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.hamburger-menu__icon').click(function () {
+                $('.accordion-menu').slideToggle();
+                $(this).toggleClass('open');
+            });
+            $('.accordion-menu__link').click(function (e) {
+                e.preventDefault();
+                $(this).next('.accordion-menu__content').slideToggle();
+            });
+        });
+    </script>
 <h1>フレンドリスト</h1>
 <!-- 
     <ul>
@@ -91,8 +103,8 @@
         </tr>
         <c:forEach var="friend" items="${FriendList}">
             <tr>
-                <td>${user_name}</td>
-                <td>${friend_id}</td>
+                <td>${friend.name}</td>
+                <td>${friend.friends_id}</td>
             </tr>
         </c:forEach>
     </table>
