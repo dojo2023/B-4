@@ -241,10 +241,10 @@ function parts_name_insert() {
 		//console.log("date_day:"+date_day);
 
 		//カレンダーにセッションスコープの日時のデータが有ればその日のtdに追加
-		for (let i = 1; i < calender_td.length; i++) {
+		for (let i = 0; i < calender_td.length; i++) {
 			//年月日で一緒かどうかを判別
 			if (display_year == date_year && display_month == date_month && i == date_day) {
-				calender_td[i].innerText = date_day + "\n" + parts_name;
+				calender_td[i-1].innerText = i + "\n" + parts_name;
 				//console.log(calender_td[i].textContent);
 			}
 		}
