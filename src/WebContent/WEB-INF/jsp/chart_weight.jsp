@@ -1,15 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>ゆるっとへるすけあ</title>
-<link rel="stylesheet" href="/komatsukita/css/weight.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="/komatsukita/css/hum.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-<link rel="stylesheet" href = "/komatsukita/css/style.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<link rel="stylesheet" href="/komatsukita/css/stylechart.css">
 </head>
 <body>
 <div class="hamburger-menu">
@@ -93,38 +94,38 @@
 <input type="submit" name="TERM" value="３か月" class="button">
 <input type="submit" name="TERM" value="半年" class="button">
 
-<c:if test="${empty weight}">
+
+	<c:if test="${empty weights}">
 		<p>一致するデータはありません</p>
 	</c:if>
 
-<c:forEach var="e" items="${weight}" varStatus="status">
-<form method="POST" action="sampleTest/WeightServlet.java">
-data1<input id="${status.index}data1" type="text" name="data1" value="${e.data1}"><br>
-data2<input	id="${status.index}data2" type="text" name="data2" value="${e.data2}"><br>
-data3<input	id="${status.index}data3" type="text" name="data3" value="${e.data3}">
-
-</form>
-<hr>
-</c:forEach>
-<form>
-<input id="target" type="hidden" value="${target}">
-</form>
-
-<div class="chart-container" >
-<canvas id="Chart" ></canvas>
-</div>
-<script>
-data0=[65, 64, 63];
-data1=[60, 60, 60];
+	<!--  今回はvarStatusを用いてループの回数を先頭に付けたindexを設定している-->
 
 
+	//グラフの描画領域
+	<div class="chart-container">
+		<canvas id="Chart"></canvas>
+	</div>
+	<!--目標体重  -->
+<p id="target" style="visibility: hidden">${target[0].target}</p>
+<!--  体重データ読み込み、表示部分 -->
+	<c:forEach var="e" items="${weights}" varStatus="status">
+		<form method="POST" action="sampleTest/WeightServlet.java">
+			<input type="hidden" id="user_id${status.index}"
+				value="${e.user_id}"><br>
+			<input  type="hidden" id="weight${status.index}"
+				value="${e.weight}"><br>
+			<input	 type="hidden" id="date${status.index}"
+				value="${e.date}">
+				<input  type="hidden" class="weight_${status.last}" id = "${status.index}" value = "${status.index}"><br>
+		</form>
 
-</script>
-<script src="/komatsukita/js/weightchart.js"></script>
-理想体重<input type="text" name="DREAMWEIGHTS"><br>
-開始日<input type="text" name="STARTS"><br>
-期限日<input type="text" name="DEADLINES"><br>
-今日の体重<input type="text" name="REALWEIGHTS"><br>
-<input type="submit" name="REGIST" value="登録" class="button"><br>
+	</c:forEach>
+	<script src="/komatsukita/js/script.js"></script>
+	理想体重<input type="text" name="DREAMWEIGHTS"><br>
+	開始日<input type="text" name="STARTS"><br>
+	期限日<input type="text" name="DEADLINES"><br>
+	今日の体重<input type="text" name="REALWEIGHTS"><br>
+	<input type="submit" name="REGIST" value="登録" class="button"><br>
 </body>
 </html>
