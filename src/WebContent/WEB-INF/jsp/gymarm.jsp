@@ -5,8 +5,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/Power.css">
+<style>
+.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 550px;
+
+}
+</style>
 </head>
 <body>
+<div class = "tree-img">
 <div class="container">
 	<div class="group">
       <h1>じむとれ（うで）</h1>
@@ -33,6 +41,6 @@
       <img src="/komatsukita/img/zimnaro.png">
     </div>
 </div>
-
+</div>
 </body>
 </html>

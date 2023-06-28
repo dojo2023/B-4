@@ -5,8 +5,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/Power.css">
+<style>
+	.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 550px;
+}
+</style>
 </head>
 <body>
+<div class = "tree-img">
 <div class="container">
 	<div class="group">
       <h1>いえとれ（お腹）</h1>
@@ -26,6 +33,7 @@
       <a href="https://www.youtube.com/watch?v=fuMOxAZOlLI&pp=ygUY6IW5562L44CA5LiK57Sa6ICF5ZCR44GR">youtubeへ</a>
       <img src="/komatsukita/img/onakapro.png">
     </div>
+</div>
 </div>
 </body>
 </html>

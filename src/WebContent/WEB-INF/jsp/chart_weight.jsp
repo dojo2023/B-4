@@ -11,8 +11,10 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <link rel="stylesheet" href="/komatsukita/css/stylechart.css">
+<link rel="stylesheet" href="css/all.css">
 </head>
 <body>
+<div class = "tree-img">
 <div class="hamburger-menu">
         <div class="hamburger-menu__icon">
             <span></span>
@@ -122,6 +124,6 @@
 
 	</c:forEach>
 	<script src="/komatsukita/js/script.js" defer></script>
-
+</div>
 </body>
 </html>

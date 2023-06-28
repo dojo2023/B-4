@@ -5,8 +5,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/Power.css">
+<style>
+.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 550px;
+}
+</style>
 </head>
 <body>
+<div class = "tree-img">
 <div class="container">
 	<div class="group">
       <h1>じむとれ(脚）</h1>
@@ -32,6 +39,7 @@
       <a href="https://www.youtube.com/watch?v=m4xM0I22gv8&pp=ygUS44Os44OD44Kw44Kr44O844Or">youtubeへ</a>
       <img src="/komatsukita/img/zimlegka-.png">
     </div>
+</div>
 </div>
 </body>
 </html>

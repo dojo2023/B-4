@@ -6,8 +6,15 @@
 <meta charset="UTF-8">
 <title>家庭用トレーニング</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
+<style>
+.tree-img {
+	background-image: url("img/tile.jpg"); 
+	
+}
+</style>
 </head>
 <body>
+<div class = "tree-img">
 <div class="hamburger-menu">
         <div class="hamburger-menu__icon">
             <span></span>
@@ -96,6 +103,6 @@
 </form> 
 
  <a href="/komatsukita/TrainingServlet" style="display: inline-block; padding: 5px; background-color: 	#008CAF; color: white; text-decoration: none;">トレーニング選択ページに戻る</a>
-
+</div>
 </body>
 </html>

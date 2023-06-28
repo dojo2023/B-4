@@ -9,8 +9,14 @@
 </head>
 <link rel="stylesheet" href="/komatsukita/css/friend.css">
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
-
+<style>
+.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 850px;
+}
+</style>
 <body>
+<div class ="tree-img">
 <div class="hamburger-menu">
         <div class="hamburger-menu__icon">
             <span></span>
@@ -120,6 +126,7 @@
 
 	</c:if>
 	</div>
+</div>
 </body>
 </html>
 

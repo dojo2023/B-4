@@ -8,7 +8,11 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
 <style>
-
+	.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 850px;
+	}	
+	
     table {
         border-collapse: collapse;
         width: 100%;
@@ -40,6 +44,7 @@
 </style>
 </head>
 <body>
+<div class = "tree-img">
 <div class="hamburger-menu">
         <div class="hamburger-menu__icon">
             <span></span>
@@ -141,5 +146,6 @@
             </tr>
         </c:forEach>
 </table>
+</div>
 </body>
 </html>

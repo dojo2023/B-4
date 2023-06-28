@@ -8,9 +8,11 @@
 <link rel="stylesheet" href="css/stylehealth.css">
 <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
+<link rel="stylesheet" href="css/all.css">
 </head>
 
 <body>
+<div class = "tree-img">
 <div class="hamburger-menu">
         <div class="hamburger-menu__icon">
             <span></span>
@@ -144,6 +146,6 @@ function slideshow() {
 }
 
 </script>
-
+</div>
 </body>
 </html>

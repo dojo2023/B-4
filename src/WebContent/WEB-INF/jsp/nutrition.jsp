@@ -7,8 +7,15 @@
 <title>栄養管理</title>
  <link rel="stylesheet" href="/komatsukita/css/nutrition.css">
  <link rel="stylesheet" href="/komatsukita/css/hum.css">
+ <style>
+ 	.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 800px;
+}
+ </style>
 </head>
 <body>
+<div class = "tree-img">
 <div class="hamburger-menu">
         <div class="hamburger-menu__icon">
             <span></span>
@@ -183,6 +190,7 @@ function viewChange() {
 
 window.onload = viewChange;
 </script>
+</div>
 </body>
 </html>
 

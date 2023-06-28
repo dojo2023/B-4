@@ -5,9 +5,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/Power.css">
+<style>
+	.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 550px;
+}
+</style>
 </head>
 <body>
-
+<div class = "tree-img">
 <div class="container">
     <div class="group">
       <h1>いえとれ（体力）</h1>
@@ -22,5 +28,6 @@
       <img src="/komatsukita/img/homepowerzyoging.png">
     </div>
   </div>
+</div>
 </body>
 </html>

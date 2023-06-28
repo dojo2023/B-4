@@ -6,8 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
-<style>
 
+<style>
+	.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 550px;
+}
+	
     .container {
         display: flex;
         align-items: center;
@@ -36,6 +41,7 @@
 </style>
 </head>
 <body>
+<div class = "tree-img">
 <div class="hamburger-menu">
         <div class="hamburger-menu__icon">
             <span></span>
@@ -123,6 +129,7 @@
         <a href="/komatsukita/GymtrainServlet">ジム用トレーニング</a>
         <img src="/komatsukita/img/inusan.png" alt="女の子">
     </div>
+</div>
 </div>
 </body>
 </html>
