@@ -8,20 +8,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
 <style>
-	h1 {
-        color: #333;
-        font-size: 24px;
-        margin-bottom: 20px;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 10px;
-    }
-	
+
     table {
         border-collapse: collapse;
         width: 100%;
         margin-bottom: 20px;
     }
-    
+
     th {
         background-color: #99ffff;
         color: #000000;
@@ -30,17 +23,17 @@
         text-align: left;
         border: 1px solid #ccc;
     }
-    
+
     td {
         padding: 8px;
         text-align: left;
         border: 1px solid #ccc;
     }
-    
+
     tr:nth-child(even) {
         background-color: #f9f9f9;
     }
-    
+
     tr:hover {
         background-color: #f5f5f5;
     }
@@ -125,8 +118,10 @@
             });
         });
     </script>
-<h1>フレンドリスト</h1>
-<!-- 
+<div style="text-align: left;">
+<img src="img/hurenndo.png" width="200" height="50"><br>
+</div>
+<!--
     <ul>
     <c:forEach var="muf" items="${FriendList}">
       <li>${modal_users_friends.user_id} (ID: ${modal_users_friends.user_name})</li>
