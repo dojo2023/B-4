@@ -152,6 +152,7 @@ document.addEventListener("click", function(e) {
         }
       }
     } else {
+	  const schedule = prompt("メモを入力してください:");
       alert("過去" + selected_year + "年" + selected_month + "月" + selected_day + "日");
     }
 		

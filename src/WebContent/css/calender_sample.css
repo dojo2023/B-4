@@ -40,7 +40,7 @@ td.is-disabled {
 
 calendar {
   border-collapse: collapse;
-  width: 99%;
+  width: 100%;
 }
 
 
@@ -59,7 +59,7 @@ calendar {
   border: none;
   color: #fff;
   padding: 10px 20px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   cursor: pointer;
 }
 
@@ -74,7 +74,7 @@ calendar {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 800px; /* カレンダーコンテナの最大幅を指定 */
+  max-width: 1000px; /* カレンダーコンテナの最大幅を指定 */
   margin: 0 auto; /* カレンダーコンテナを中央に配置 */
 }
 
@@ -106,13 +106,13 @@ table td {
   font-weight: bold;
   text-align: center;
   padding: 5px;
-  width: 14.28%; /* カレンダーテーブルの各セルの幅を調整 */
+  width: 18.28%; /* カレンダーテーブルの各セルの幅を調整 */
 }
 
 /* カレンダーテーブルセル */
 table .is-disabled {
   color: #ccc;
-  width: 14.28%; /* カレンダーテーブルの各セルの幅を調整 */
+  width: 18.28%; /* カレンダーテーブルの各セルの幅を調整 */
 }
 
 table .calendar_td {
@@ -202,12 +202,13 @@ color: blue;
   overflow: hidden;
   clear: both;
 }
-#previous {
+#prev{
   float: left;
+  margin-left: 30px;
 }
 #next {
   float: right;
-  margin-right: 15px;
+  margin-right: 0px;
 }
 .footer-container-calendar {
   margin-top: 1em;
