@@ -28,9 +28,10 @@ for (let i = 0; i < end_count; i++) {
 	//console.log("date:" + date);
 
 	//目標体重の格納
-	const target = document.getElementById("target").innerText;
+	const target = document.getElementById("target").value;
 	target_array[i]=target;
 }
+console.log(target_array[0]);
 console.log(weight_array[0]);
 console.log(date_array[0]);
 //描画エリアの設定
@@ -41,12 +42,12 @@ let lineConfig = {
 	data: {
 		labels: date_array,
 		datasets: [{
-			label: 'Red',
+			label: '毎日の体重',
 			data: weight_array,
 			borderColor: 'Red',
 		}
 		, {
-			label: 'Green',
+			label: '理想体重',
 			data: target_array,
 			borderColor: 'Green',
 

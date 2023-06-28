@@ -26,7 +26,7 @@ public class ChartDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
 
 				// SQL文を準備する
-				String sql = "select user_id, weight, Left(created_at,10) as day from users_weights WHERE user_id = ? order by Left(created_at,10) desc ";
+				String sql = "select user_id, weight, Left(created_at,10) as day from users_weights WHERE user_id = ? order by Left(created_at,10) asc ";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる

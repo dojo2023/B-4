@@ -102,15 +102,15 @@
 	<!--  今回はvarStatusを用いてループの回数を先頭に付けたindexを設定している-->
 
 
-	//グラフの描画領域
+	<!-- グラフの描画領域 -->
 	<div class="chart-container">
 		<canvas id="Chart"></canvas>
 	</div>
 	<!--目標体重  -->
-<p id="target" style="visibility: hidden">${target[0].target}</p>
-<!--  体重データ読み込み、表示部分 -->
+<input type = "hidden" id="target" value="${target[0].target}">
+ <!--  体重データ読み込み、表示部分 -->
 	<c:forEach var="e" items="${weights}" varStatus="status">
-		<form method="POST" action="sampleTest/WeightServlet.java">
+		<form method="POST" action="/komatsukita/WeightServlet.java">
 			<input type="hidden" id="user_id${status.index}"
 				value="${e.user_id}"><br>
 			<input  type="hidden" id="weight${status.index}"
@@ -121,8 +121,8 @@
 		</form>
 
 	</c:forEach>
-	<script src="/komatsukita/js/script.js"></script>
-	理想体重<input type="text" name="DREAMWEIGHTS"><br>
+	<script src="/komatsukita/js/script.js" defer></script>
+	理想体重<input type="text" name="DREAMWEIGHTS" value="${target[0].target}"><br>
 	開始日<input type="text" name="STARTS"><br>
 	期限日<input type="text" name="DEADLINES"><br>
 	今日の体重<input type="text" name="REALWEIGHTS"><br>
