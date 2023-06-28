@@ -131,5 +131,56 @@ public class ChartDAO {
 
 			// 結果を返す
 			return cardList;
+
 		}
+
+		public boolean insert(String user_id,String weights) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
+
+				// SQL文を準備する
+				String sql = "insert into users_weights (user_id,weight)  values (?, ?)";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+
+				pStmt.setString(1, user_id);
+				pStmt.setString(2, weights);
+
+
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
+
 }
