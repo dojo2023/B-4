@@ -53,18 +53,18 @@ public class WeightServlet extends HttpServlet {
 
     	// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String weights = request.getParameter("REALWEIGHTS");
+		int weights =  Integer.parseInt(request.getParameter("REALWEIGHTS"));
 
 		//セッションスコープからIDを取得する
 
 		HttpSession session = request.getSession();
 		LoginUser id_login = (LoginUser)session.getAttribute("id");
-		String id = id_login.getUser_id();
+		String user_id = id_login.getUser_id();
 //		String id ="a";
     	// 登録処理を行う
-		System.out.println("id:"+id);
+		System.out.println("id:"+user_id);
 		ChartDAO cDao = new ChartDAO();
-		if (cDao.insert(id,weights)) {	// 登録成功
+		if (cDao.insert(user_id,weights)) {	// 登録成功
 			request.setAttribute("result",
 			new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
 		}

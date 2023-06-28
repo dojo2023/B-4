@@ -134,7 +134,7 @@ public class ChartDAO {
 
 		}
 
-		public boolean insert(String user_id,String weights) {
+		public boolean insert(String user_id, int weights) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -152,7 +152,7 @@ public class ChartDAO {
 				// SQL文を完成させる
 
 				pStmt.setString(1, user_id);
-				pStmt.setString(2, weights);
+				pStmt.setInt(2, weights);
 
 
 
