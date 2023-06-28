@@ -47,7 +47,7 @@ public class HomeServlet extends HttpServlet {
 		
 		CalenderDao cDao = new CalenderDao();
 		ArrayList<Calender> calenderList = new ArrayList<>();
-		calenderList = cDao.selectTrainings("id");
+		calenderList = cDao.selectTrainings(id);
 		request.setAttribute("calenderList",calenderList);
 
 		
