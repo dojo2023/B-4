@@ -4,8 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <title>traincheck</title>
+<style>
+	.tree-img {
+	background-image: url("img/tile.jpg"); 
+	height: 550px;
+}
+</style>
 </head>
 <body>
+<div class = "tree-img">
 <h1>かくにん</h1>
 <img src="/komatsukita/img/nekotatsu.png" width=200;>
 <p>カレンダーに登録しますか？</p>
@@ -17,5 +24,6 @@
 
 </form>
 <a href="/komatsukita/HomeServlet">ホームに戻る</a>
+</div>
 </body>
 </html>

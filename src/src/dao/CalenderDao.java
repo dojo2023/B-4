@@ -26,7 +26,7 @@ public class CalenderDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B4", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "select parts_name,id,created_at from users_weights where user_id = ?"; //?は後で書き換える
+			String sql = "select parts_name,id,created_at from trainings where user_id = ?"; //?は後で書き換える
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, user_id);
 
