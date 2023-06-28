@@ -97,21 +97,20 @@
 
 <button onclick="slideshow()">パワー！！！</button>
 <!-- </form> -->
-<p>1日1回のログインで<br>
-1ポイントもらえるぞ
+<p>パワーボタンを押すと<br>
+女の子が元気になっていくよ
 </p>
 <br>
-<p>女の子の成長は<br>
-1週間でリセットされるぞ
+<p>７回押すと女の子の<br>
+成長はリセットされるよ
 </p>
 <br>
-<p>1ポイント消費で<br>
-ボタンを一回押して女の子に元気を送ろう
+<p><br>
 </p>
 <br>
 <input type="hidden"  id="chara_id_data" value="${chara_id}">
 <input type="text" name="chara_id" id="chara_id_now" value="${chara_id}">
-<p>残りポイントは<br>7pt</p>
+<p><br></p>
 Copyright © 2023 komatsukita All Right Reserved.
 </div>
 
