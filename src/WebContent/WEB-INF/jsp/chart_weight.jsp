@@ -105,7 +105,13 @@
 	<!-- グラフの描画領域 -->
 	<div class="chart-container">
 		<canvas id="Chart"></canvas>
+	理想体重<input type="text" name="DREAMWEIGHTS" value="${target[0].target}"><br>
+	開始日<input type="text" name="STARTS"><br>
+	期限日<input type="text" name="DEADLINES"><br>
+	今日の体重<input type="text" name="REALWEIGHTS"><br>
+	<input type="submit" name="REGIST" value="登録" class="button"><br>
 	</div>
+
 	<!--目標体重  -->
 <input type = "hidden" id="target" value="${target[0].target}">
  <!--  体重データ読み込み、表示部分 -->
@@ -122,10 +128,6 @@
 
 	</c:forEach>
 	<script src="/komatsukita/js/script.js" defer></script>
-	理想体重<input type="text" name="DREAMWEIGHTS" value="${target[0].target}"><br>
-	開始日<input type="text" name="STARTS"><br>
-	期限日<input type="text" name="DEADLINES"><br>
-	今日の体重<input type="text" name="REALWEIGHTS"><br>
-	<input type="submit" name="REGIST" value="登録" class="button"><br>
+
 </body>
 </html>

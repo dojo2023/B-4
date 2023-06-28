@@ -9,8 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ChartDAO;
+import model.LoginUser;
+import model.Result;
 import model.Target;
 import model.Weight;
 //Chartjsのサンプル
@@ -45,7 +48,33 @@ public class WeightServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
+		request.setCharacterEncoding("UTF-8");
+
+
+    	// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String weights = request.getParameter("REALWEIGHTS");
+
+		//セッションスコープからIDを取得する
+
+		HttpSession session = request.getSession();
+		LoginUser id_login = (LoginUser)session.getAttribute("id");
+		String id = id_login.getUser_id();
+//		String id ="a";
+    	// 登録処理を行う
+		System.out.println("id:"+id);
+		ChartDAO cDao = new ChartDAO();
+		if (cDao.insert(id,weights)) {	// 登録成功
+			request.setAttribute("result",
+			new Result("登録成功！", "レコードを登録しました。", "/komatsukita/HomeServlet"));
+		}
+		else {												// 登録失敗
+			request.setAttribute("result",
+			new Result("登録できません", "必須項目を入力してください", "/WEB-INF/jsp/result.jsp"));
+		}
+		//戻る
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }
