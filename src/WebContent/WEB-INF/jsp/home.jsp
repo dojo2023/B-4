@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <style>
+
     .calendar {
       font-family: Arial, sans-serif;
       width: 300px;
@@ -52,6 +53,27 @@
       background-color: #428bca;
       color: #fff;
     }
+
+    .container {
+  display: flex;
+  justify-content: center;
+}
+
+.ma {
+  display: flex;
+}
+
+.start, .last {
+  margin: 0 50px;
+}
+
+#popup {
+  text-align: center;
+  top: 50%;
+  left: 50%;
+
+}
+}
 
   </style>
   <link rel="stylesheet" href="/komatsukita/css/home.css">
@@ -139,12 +161,10 @@
             });
         });
     </script>
-<h1>
-	<span class = "hm">
-    	ゆるっとほーむ
-	</span>
-</h1>
+
+
 <div class = "komatsu4">
+    <img src="/komatsukita/img/homm.png" width="280" height="100"><br>
 	<img src="/komatsukita/img/homewoman.png" width="260" height="130"><br>
 </div>
 <div class = "moku">
@@ -159,7 +179,8 @@
 
 </div>
 
-<div class = "ma">
+<div class="container">
+<div class="ma">
 	<div class = "start">
 		<p>開始日</p><br>
 		<input type="date" name="calendar1" ><br>
@@ -169,15 +190,19 @@
 		<input type="date" name="calendar2" value = "開始日"><br>
 	</div>
 </div>
+</div>
+<div id = "popup"></div>
 <br>
- 
+<br>
+<br>
 <div class="wrapper">
     <div class="body">
+    <div class="center">
       <button id="prev" type="button">前の月</button>
       <button id="next" type="button">次の月</button>
       <div id="calendar" class="container-calendar"></div>
     </div>
-
+    </div>
     <div id="parts_list">
       <c:forEach var="e" items="${calenderList}" varStatus="status">
         <form>
@@ -188,42 +213,8 @@
         </form>
       </c:forEach>
     </div>
-  </div> 
-  
-	<!-- カレンダーを作る -->
-<!--
- 	 <div class="container-calendar">
-          <h4 id="monthAndYear"></h4>
-          <div class="button-container-calendar">
-              <button id="previous" onclick="previous()">‹</button>
-              <button id="next" onclick="next()">›</button>
-          </div>
+  </div>
 
-          <table class="table-calendar" id="calendar" data-lang="ja">
-              <thead id="thead-month"></thead>
-              <tbody id="calendar-body"></tbody>
-          </table>
-
-      <div class="footer-container-calendar">
-              <label for="month">日付指定：</label>
-              <select id="month" onchange="jump()">
-                  <option value=0>1月</option>
-                  <option value=1>2月</option>
-                  <option value=2>3月</option>
-                  <option value=3>4月</option>
-                  <option value=4>5月</option>
-                  <option value=5>6月</option>
-                  <option value=6>7月</option>
-                  <option value=7>8月</option>
-                  <option value=8>9月</option>
-                  <option value=9>10月</option>
-                  <option value=10>11月</option>
-                  <option value=11>12月</option>
-              </select>
-              <select id="year" onchange="jump()"></select>
-          </div>
-    </div> 
-    --> 
 
 <script src="js/calender_sample.js"></script>
 </body>

@@ -76,12 +76,25 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <h1>フレンドリスト</h1>
-
+<!-- 
     <ul>
-    <c:forEach var="friend" items="${friendList}">
-      <li>${friend.user_name} (ID: ${friend.user_id})</li>
+    <c:forEach var="muf" items="${FriendList}">
+      <li>${modal_users_friends.user_id} (ID: ${modal_users_friends.user_name})</li>
     </c:forEach>
   	</ul>
+-->
 
+<table>
+        <tr>
+            <th>ユーザー名</th>
+            <th>フレンドID</th>
+        </tr>
+        <c:forEach var="friend" items="${FriendList}">
+            <tr>
+                <td>${user_name}</td>
+                <td>${friend_id}</td>
+            </tr>
+        </c:forEach>
+    </table>
 </body>
 </html>
