@@ -54,8 +54,60 @@ CREATE TABLE personals (
 INSERT INTO personals (user_id, dream_weights, real_weights, starts, deadline, goal)
 VALUES ('health', 45, 50, 20230607, 20230707, '美しく綺麗な体型になる');
 
+【users_weightsテーブルを作成するSQL文】〆
+create table users_weights (user_id varchar(20),weight int,created_at timestamp default current_timestamp,updated_at timestamp default current_timestamp);
+​
 
 
+【users_weightsテーブルにサンプルデータを登録するSQL文】〆
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',50,current_timestamp-1,current_timestamp-1);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',49,current_timestamp-2,current_timestamp-2);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',48,current_timestamp-3,current_timestamp-3);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',50,current_timestamp-4,current_timestamp-4);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',48,current_timestamp-5,current_timestamp-5);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',46,current_timestamp-6,current_timestamp-6);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',48,current_timestamp-7,current_timestamp-7);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',47,current_timestamp-8,current_timestamp-8);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',46,current_timestamp-9,current_timestamp-9);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',45,current_timestamp-10,current_timestamp-10);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',46,current_timestamp-11,current_timestamp-11);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',46,current_timestamp-12,current_timestamp-12);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',47,current_timestamp-13,current_timestamp-13);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',47,current_timestamp-14,current_timestamp-14);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',45,current_timestamp-15,current_timestamp-15);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',46,current_timestamp-16,current_timestamp-16);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',47,current_timestamp-17,current_timestamp-17);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',48,current_timestamp-18,current_timestamp-18);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',48,current_timestamp-19,current_timestamp-19);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',49,current_timestamp-20,current_timestamp-20);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',50,current_timestamp-21,current_timestamp-21);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',50,current_timestamp-22,current_timestamp-22);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',52,current_timestamp-23,current_timestamp-23);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',51,current_timestamp-24,current_timestamp-24);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',52,current_timestamp-25,current_timestamp-25);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',53,current_timestamp-26,current_timestamp-26);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',54,current_timestamp-27,current_timestamp-27);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',54,current_timestamp-28,current_timestamp-28);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',54,current_timestamp-29,current_timestamp-29);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',55,current_timestamp-30,current_timestamp-30);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',55,current_timestamp-31,current_timestamp-31);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',56,current_timestamp-32,current_timestamp-32);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',55,current_timestamp-33,current_timestamp-33);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',54,current_timestamp-34,current_timestamp-34);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',55,current_timestamp-35,current_timestamp-35);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',56,current_timestamp-36,current_timestamp-36);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',57,current_timestamp-37,current_timestamp-37);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',56,current_timestamp-38,current_timestamp-38);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',56,current_timestamp-39,current_timestamp-39);
+insert into users_weights (user_id,weight,created_at,updated_at) values ('health',57,current_timestamp-40,current_timestamp-40);
+
+
+【users_targetsテーブルを作成するSQL文】〆
+create table users_targets (user_id varchar(20),target int,created_at timestamp default current_timestamp,updated_at timestamp default current_timestamp);
+
+【users_targetsテーブルにサンプルデータを登録するSQL文】〆
+insert into users_targets (user_id,target,created_at,updated_at) values ('health',50,current_timestamp-40,current_timestamp-40);
+insert into users_targets (user_id,target,created_at,updated_at) values ('health',50,current_timestamp-20,current_timestamp-20);
 
 
 【friendsテーブルを作成するSQL文】〆
