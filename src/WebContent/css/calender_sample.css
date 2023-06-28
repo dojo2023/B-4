@@ -98,7 +98,7 @@ h1 {
 /* カレンダーテーブル */
 table {
   width: 100%;
-  table-layout: auto;
+  table-layout: fixed;
 }
 
 /* カレンダーテーブルヘッダー */

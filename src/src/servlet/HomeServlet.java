@@ -40,7 +40,8 @@ public class HomeServlet extends HttpServlet {
 		
 		//セッションスコープに格納されているIDを取得する
 		HttpSession session = request.getSession();
-        LoginUser id = (LoginUser) session.getAttribute("user_id");
+		LoginUser id_login = (LoginUser) session.getAttribute("id");
+		String id=id_login.getUser_id();
 ////
 //		String user_id = (String)session.getAttribute("user_id");
 		

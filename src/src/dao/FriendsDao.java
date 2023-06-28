@@ -28,8 +28,8 @@ public class FriendsDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (param.getId() != null) {
-					pStmt.setString(1, "%" + param.getId() + "%");
+				if (param.getName() != null) {
+					pStmt.setString(1, "%" + param.getName() + "%");
 				}
 				else {
 					pStmt.setString(1, "%");
@@ -104,8 +104,8 @@ public class FriendsDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (card.getId() != null && !card.getId().equals("")) {
-					pStmt.setString(1, card.getId());
+				if (card.getName() != null && !card.getName().equals("")) {
+					pStmt.setString(1, card.getName());
 				}
 				else {
 					pStmt.setString(1, null);

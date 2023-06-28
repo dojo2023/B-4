@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/komatsukita/css/hum.css">
+<title>ゆるっとへるすけあ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/komatsukita/css/hum.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<link rel="stylesheet" href="/komatsukita/css/stylechart.css">
 </head>
 <body>
 <div class="hamburger-menu">
@@ -41,7 +45,6 @@
                 </ul>
             </div>
         </li>
-
         <li class="accordion-menu__item">
             <a class="accordion-menu__link" href="#">トレーニング例（ジム）</a>
             <div class="accordion-menu__content">
@@ -54,18 +57,15 @@
                 </ul>
             </div>
         </li>
-
         <li class="accordion-menu__item">
             <a href="/komatsukita/GameServlet">育成ゲーム</a>
         </li>
         <!--  <li class="accordion-menu__item">
             <a href="">ランキング</a>
         </li> -->
-
         <li class="accordion-menu__item">
             <a href="/komatsukita/FriendServlet">友達追加</a>
         </li>
-
         <li class="accordion-menu__item">
             <a href="/komatsukita/FriendlistServlet">フレンドリスト</a>
         </li>
@@ -73,7 +73,6 @@
             <a href="/komatsukita/LoginServlet">ログアウト</a>
         </li>
     </ul>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -87,26 +86,46 @@
             });
         });
     </script>
-<h1>フレンドリスト</h1>
-<!-- 
-    <ul>
-    <c:forEach var="muf" items="${FriendList}">
-      <li>${modal_users_friends.user_id} (ID: ${modal_users_friends.user_name})</li>
-    </c:forEach>
-  	</ul>
--->
+<h1>たいじゅうかんり</h1>
+<hr>
 
-<table>
-        <tr>
-            <th>ユーザー名</th>
-            <th>フレンドID</th>
-        </tr>
-        <c:forEach var="friend" items="${FriendList}">
-            <tr>
-                <td>${friend.name}</td>
-                <td>${friend.friends_id}</td>
-            </tr>
-        </c:forEach>
-    </table>
+<input type="submit" name="TERM" value="一週間" class="button">
+<input type="submit" name="TERM" value="１か月" class="button">
+<input type="submit" name="TERM" value="３か月" class="button">
+<input type="submit" name="TERM" value="半年" class="button">
+
+
+	<c:if test="${empty weights}">
+		<p>一致するデータはありません</p>
+	</c:if>
+
+	<!--  今回はvarStatusを用いてループの回数を先頭に付けたindexを設定している-->
+
+
+	<!-- グラフの描画領域 -->
+	<div class="chart-container">
+		<canvas id="Chart"></canvas>
+	</div>
+	<!--目標体重  -->
+<input type = "hidden" id="target" value="${target[0].target}">
+ <!--  体重データ読み込み、表示部分 -->
+	<c:forEach var="e" items="${weights}" varStatus="status">
+		<form method="POST" action="/komatsukita/WeightServlet.java">
+			<input type="hidden" id="user_id${status.index}"
+				value="${e.user_id}"><br>
+			<input  type="hidden" id="weight${status.index}"
+				value="${e.weight}"><br>
+			<input	 type="hidden" id="date${status.index}"
+				value="${e.date}">
+				<input  type="hidden" class="weight_${status.last}" id = "${status.index}" value = "${status.index}"><br>
+		</form>
+
+	</c:forEach>
+	<script src="/komatsukita/js/script.js" defer></script>
+	理想体重<input type="text" name="DREAMWEIGHTS" value="${target[0].target}"><br>
+	開始日<input type="text" name="STARTS"><br>
+	期限日<input type="text" name="DEADLINES"><br>
+	今日の体重<input type="text" name="REALWEIGHTS"><br>
+	<input type="submit" name="REGIST" value="登録" class="button"><br>
 </body>
 </html>

@@ -98,17 +98,29 @@
 	</c:if>
 
 <c:forEach var="e" items="${weight}" varStatus="status">
-<form method="POST" action="sampleTest/ChartjsServlet.java">
+<form method="POST" action="sampleTest/WeightServlet.java">
 data1<input id="${status.index}data1" type="text" name="data1" value="${e.data1}"><br>
 data2<input	id="${status.index}data2" type="text" name="data2" value="${e.data2}"><br>
 data3<input	id="${status.index}data3" type="text" name="data3" value="${e.data3}">
+
 </form>
 <hr>
 </c:forEach>
+<form>
+<input id="target" type="hidden" value="${target}">
+</form>
+
 <div class="chart-container" >
 <canvas id="Chart" ></canvas>
 </div>
-<script src="/komatsukita/js/chart.js"></script>
+<script>
+data0=[65, 64, 63];
+data1=[60, 60, 60];
+
+
+
+</script>
+<script src="/komatsukita/js/weightchart.js"></script>
 理想体重<input type="text" name="DREAMWEIGHTS"><br>
 開始日<input type="text" name="STARTS"><br>
 期限日<input type="text" name="DEADLINES"><br>

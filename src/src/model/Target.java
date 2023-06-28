@@ -3,14 +3,14 @@ package model;
 import java.io.Serializable;
 
 
-public class Weight implements Serializable {
+public class Target implements Serializable {
 	private int user_id;
-	private int weight;
+	private int target;
 	private String date;
 
-	public Weight() {
+	public Target() {
 		this.user_id = 0;
-		this.weight = 0;
+		this.target = 0;
 		this.date = "";
 	}
 
@@ -22,12 +22,12 @@ public class Weight implements Serializable {
 		this.user_id = user_id;
 	}
 
-	public int getWeight() {
-		return weight;
+	public int getTarget() {
+		return target;
 	}
 
-	public void setWeight(int weight) {
-		this.weight = weight;
+	public void setTarget(int target) {
+		this.target = target;
 	}
 
 	public String getDate() {
@@ -37,6 +37,8 @@ public class Weight implements Serializable {
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+
 
 
 }

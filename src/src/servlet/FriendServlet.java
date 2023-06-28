@@ -77,7 +77,7 @@ public class FriendServlet extends HttpServlet {
 		//friendsデータを作る
 		Friends f = new Friends();
 		//
-		f.setId("");
+		f.setName("");
 
 		// 登録処理を行う
 //		FriendsDao
