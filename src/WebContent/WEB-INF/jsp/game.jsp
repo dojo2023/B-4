@@ -110,7 +110,7 @@
 </p>
 <br>
 <input type="hidden"  id="chara_id_data" value="${chara_id}">
-<input type="hidden" name="chara_id" id="chara_id_now" value="">
+<input type="text" name="chara_id" id="chara_id_now" value="${chara_id}">
 <p>残りポイントは<br>7pt</p>
 Copyright © 2023 komatsukita All Right Reserved.
 </div>
@@ -140,6 +140,7 @@ function slideshow() {
     	chara_id = 0;
     }
     //サーブレットGameServletのpostメソッドを呼び出す
+    //location.href = "/komatsukita/CharaChangeServlet";
 
 }
 

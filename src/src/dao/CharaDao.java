@@ -129,10 +129,10 @@ public class CharaDao {
 
 
 
-public String update(String user_id) {
+public boolean update(String chara_id,String user_id) {
 	Connection conn = null;
-	String chara_id = "";
-	try {
+	boolean result =false;
+		try {
 		// JDBCドライバを読み込む
 		Class.forName("org.h2.Driver");
 
@@ -141,21 +141,20 @@ public String update(String user_id) {
 
 
 		// SQL文を準備する
-		String sql = "update userscharas set chara_id  = chara_id where user_id = ?";
+		String sql = "update userscharas set chara_id  = ? where user_id = ?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 
-			pStmt.setString(1, user_id);
-
+			pStmt.setString(1, chara_id);
+			pStmt.setString(2, user_id);
 
 		// SQL文を実行し、結果表を取得する
-		ResultSet rs = pStmt.executeQuery();
+		if(pStmt.executeUpdate() ==1) {
+			result = true;
+		}
 
-		// 結果表をコレクションにコピーする
-		rs.next();
-		System.out.println(rs.getString("chara_id"));
-		chara_id=rs.getString("chara_id");
+
 
 
 //		chara_file=rs.getString("chara_file");
@@ -183,7 +182,7 @@ public String update(String user_id) {
 	}
 
 	// 結果を返す
-	return chara_id;
+	return result;
 }
 }
 

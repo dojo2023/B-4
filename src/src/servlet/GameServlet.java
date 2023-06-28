@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CharaDao;
 import model.Serifus;
@@ -42,8 +43,8 @@ public class GameServlet extends HttpServlet {
 		CharaDao cDao = new CharaDao();
 		Serifus sf = cDao.select(user_id);
 		int chara_id = Integer.parseInt(cDao.selectId(user_id));
-
-		request.setAttribute("chara_id", chara_id);
+		HttpSession session = request.getSession();
+		session.setAttribute("chara_id", chara_id);
 		//取ってきたファイル名をリクエストスコープに格納する
 		request.setAttribute("serif_chara", sf);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/game.jsp");
