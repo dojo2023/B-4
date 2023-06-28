@@ -7,6 +7,44 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
+<style>
+	h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+    }
+	
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    th {
+        background-color: #99ffff;
+        color: #000000;
+        font-weight: bold;
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ccc;
+    }
+    
+    td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ccc;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
 </head>
 <body>
 <div class="hamburger-menu">
@@ -107,6 +145,6 @@
                 <td>${friend.friends_id}</td>
             </tr>
         </c:forEach>
-    </table>
+</table>
 </body>
 </html>

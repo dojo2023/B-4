@@ -6,6 +6,40 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/komatsukita/css/hum.css">
+<style>
+	h1 {
+        color: #008CAF;
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+    }
+
+    .option {
+        margin: 10px;
+        text-align: center;
+    }
+
+    .option a {
+        display: inline-block;
+        padding: 5px;
+        background-color: #008CAF;
+        color: white;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+
+    .option img {
+        width: 300px;
+        height: 200px;
+    }
+</style>
 </head>
 <body>
 <div class="hamburger-menu">
@@ -82,14 +116,16 @@
             });
         });
     </script>
-
 <h1>トレーニングをえらんでね</h1>
-<a href="/komatsukita/HometrainServlet" style="display: inline-block; padding: 5px; background-color: 	#008CAF; color: white; text-decoration: none;">家庭用トレーニング</a>
-    <img src="/komatsukita/img/senpuki.png" width="300" height="200" alt="女の子">
-
-<br>
-    <a href="/komatsukita/GymtrainServlet" style="display: inline-block; padding: 5px; background-color: 	#008CAF; color: white; text-decoration: none;">ジム用トレーニング</a>
-    <img src="/komatsukita/img/inusan.png" width="300" height="200" alt="女の子">
-
+<div class="container">
+    <div class="option">
+        <a href="/komatsukita/HometrainServlet">家庭用トレーニング</a>
+        <img src="/komatsukita/img/senpuki.png" alt="女の子">
+    </div>
+    <div class="option">
+        <a href="/komatsukita/GymtrainServlet">ジム用トレーニング</a>
+        <img src="/komatsukita/img/inusan.png" alt="女の子">
+    </div>
+</div>
 </body>
 </html>
