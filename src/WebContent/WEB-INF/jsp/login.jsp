@@ -19,7 +19,8 @@
 
 <input type="submit" name="LOGIN" value="ログイン"><br>
 </form>
-
+<br>
+<br>
 <a href="/komatsukita/RegistServlet">新規登録はこちらから</a>
 </div>
 
