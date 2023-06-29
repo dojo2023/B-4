@@ -20,7 +20,7 @@
 <form method="POST" action="/komatsukita/TraincheckServlet">
 	<input type="text" name="kakunin" value="${parts_name}">
 
-	<input type="submit" name="sub" value="送信"><br>
+	<input type="submit" name="sub" value="登録"><br>
 
 </form>
 <a href="/komatsukita/HomeServlet">ホームに戻る</a>
