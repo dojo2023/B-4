@@ -160,7 +160,7 @@
 				<label for="text3" id="l_text3">理想体重</label><br> <input
 					id="text3" type="text" placeholder="体重を入力する">
 				<div class="text_underline"></div>
-				<br> <label for="text4" id="l_text4">目的</label> <input
+				<br> <label for="text4" id="l_text4">目的</label><br> <input
 					id="text4" type="text" placeholder="目的を入力する">
 				<div class="text_underline"></div>
 				<br>

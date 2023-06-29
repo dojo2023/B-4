@@ -25,7 +25,7 @@
 
 #text4{
     font-size: 16px;
-    width: 100%;
+    width: 20%;
     border: none;
     outline: none;
     padding-bottom: 8px;
@@ -33,7 +33,8 @@
 }
 
 .text_underline{
-    position: relative; /*.text_underline::beforeの親要素*/
+     /*.text_underline::beforeの親要素*/
+     position: relative;
     border-top: 1px solid #c2c2c2; /*text3の下線*/
 }
 
